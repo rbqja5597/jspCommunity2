@@ -53,6 +53,9 @@ public class DispatcherServlet extends HttpServlet {
 			else if (actionMethodName.equals("detail")) {
 				jspPath = articleController.showdetail(req, resp);
 			}
+			else if (actionMethodName.equals("write")) {
+				jspPath = articleController.showWrite(req, resp);
+			}
 		}
 		
 		MysqlUtil.closeConnection();
