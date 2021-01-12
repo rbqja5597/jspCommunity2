@@ -20,7 +20,6 @@ List<Article> articles = (List<Article>) request.getAttribute("articles");
 	<div>
 		<a href="write?boardId=<%=request.getParameter("boardId")%>">게시물 작성</a>
 	</div>
-	
 	<%
 	for (Article article : articles) {
 	%>
@@ -38,11 +37,11 @@ List<Article> articles = (List<Article>) request.getAttribute("articles");
 		<%=article.extra__writer%>
 		<br />
 		제목 :
-		<%=article.title%>
+		<a href="detail?id=<%=article.id%>"><%=article.title%></a>
 		<hr />
 	</div>
 	<%
 	}
 	%>
 </body>
-</html> 
+</html>

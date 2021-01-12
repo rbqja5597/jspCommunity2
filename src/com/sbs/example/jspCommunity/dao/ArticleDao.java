@@ -27,7 +27,7 @@ public class ArticleDao {
 			sql.append("WHERE A.boardId = ?", boardId);
 		}
 		sql.append("ORDER BY A.id DESC");
-
+		
 		List<Map<String, Object>> articleMapList = MysqlUtil.selectRows(sql);
 
 		for (Map<String, Object> articleMap : articleMapList) {
@@ -38,7 +38,6 @@ public class ArticleDao {
 	}
 
 	public Article getForPrintArticleById(int id) {
-
 		SecSql sql = new SecSql();
 		sql.append("SELECT A.*");
 		sql.append(", M.name AS extra__writer");
@@ -50,13 +49,13 @@ public class ArticleDao {
 		sql.append("INNER JOIN `board` AS B");
 		sql.append("ON A.boardId = B.id");
 		sql.append("WHERE A.id = ?", id);
-
+		
 		Map<String, Object> map = MysqlUtil.selectRow(sql);
 		
-		if (map.isEmpty()) {
+		if ( map.isEmpty() ) {
 			return null;
 		}
-		
+
 		return new Article(map);
 	}
 
@@ -65,13 +64,26 @@ public class ArticleDao {
 		sql.append("SELECT B.*");
 		sql.append("FROM board AS B");
 		sql.append("WHERE B.id = ?", id);
-
+		
 		Map<String, Object> map = MysqlUtil.selectRow(sql);
 		
-		if (map.isEmpty()) {
+		if ( map.isEmpty() ) {
 			return null;
 		}
-		
+
 		return new Board(map);
+	}
+
+	public int write(Map<String, Object> args) {
+		SecSql sql = new SecSql();
+		sql.append("INSERT INTO article");
+		sql.append("SET regDate = NOW()");
+		sql.append(", updateDate = NOW()");
+		sql.append(", memberId = ?", args.get("memberId"));
+		sql.append(", boardId = ?", args.get("boardId"));
+		sql.append(", title = ?", args.get("title"));
+		sql.append(", body = ?", args.get("body"));
+		
+		return MysqlUtil.insert(sql);
 	}
 }
