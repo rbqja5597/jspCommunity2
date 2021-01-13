@@ -9,16 +9,14 @@ import com.sbs.example.jspCommunity.dto.Article;
 import com.sbs.example.jspCommunity.dto.Board;
 
 public class ArticleService {
-	
 	private ArticleDao articleDao;
-	
+
 	public ArticleService() {
 		articleDao = Container.articleDao;
 	}
 
 	public List<Article> getForPrintArticlesByBoardId(int boardId) {
 		return articleDao.getForPrintArticlesByBoardId(boardId);
-		
 	}
 
 	public Article getForPrintArticleById(int id) {
@@ -32,5 +30,4 @@ public class ArticleService {
 	public int write(Map<String, Object> args) {
 		return articleDao.write(args);
 	}
-
 }

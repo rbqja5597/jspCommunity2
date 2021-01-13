@@ -30,7 +30,7 @@ Board board = (Board) request.getAttribute("board");
 			<div>
 				<div>내용</div>
 				<div>
-					<textarea name="body"  placeholder="내용을 입력해주세요."  maxlength="5000"></textarea>
+					<textarea placeholder="내용을 입력해주세요." name="body" maxlength="5000"></textarea>
 				</div>
 			</div>
 			<hr />

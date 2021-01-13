@@ -6,8 +6,6 @@ import com.sbs.example.jspCommunity.container.Container;
 import com.sbs.example.jspCommunity.dao.MemberDao;
 import com.sbs.example.jspCommunity.dto.Member;
 
-
-
 public class MemberService {
 
 	private MemberDao memberDao;
@@ -18,7 +16,6 @@ public class MemberService {
 
 	public List<Member> getForPrintMembers() {
 		return memberDao.getForPrintMembers();
-		
 	}
 
 }

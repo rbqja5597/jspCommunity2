@@ -8,16 +8,14 @@ import com.sbs.example.jspCommunity.service.ArticleService;
 import com.sbs.example.jspCommunity.service.MemberService;
 
 public class Container {
-	public static ArticleDao articleDao;
 	public static ArticleService articleService;
+	public static ArticleDao articleDao;
 	public static ArticleController articleController;
-
+	
 	public static MemberDao memberDao;
 	public static MemberService memberService;
-	public static MemberController memberContrller;
+	public static MemberController memberController;
 	
-
-
 	static {
 		memberDao = new MemberDao();
 		articleDao = new ArticleDao();
@@ -25,9 +23,7 @@ public class Container {
 		memberService = new MemberService();
 		articleService = new ArticleService();
 		
-		memberContrller = new MemberController();
+		memberController = new MemberController();
 		articleController = new ArticleController();
-		
 	}
-	
 }

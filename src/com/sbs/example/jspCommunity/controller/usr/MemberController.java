@@ -10,13 +10,12 @@ import com.sbs.example.jspCommunity.dto.Member;
 import com.sbs.example.jspCommunity.service.MemberService;
 
 public class MemberController {
-	
 	private MemberService memberService;
 	
 	public MemberController() {
 		memberService = Container.memberService;
 	}
-
+	
 	public String showList(HttpServletRequest req, HttpServletResponse resp) {
 		List<Member> members = memberService.getForPrintMembers();
 		
@@ -24,5 +23,4 @@ public class MemberController {
 		
 		return "usr/member/list";
 	}
-
 }

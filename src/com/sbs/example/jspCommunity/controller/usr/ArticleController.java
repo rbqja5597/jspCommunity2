@@ -13,7 +13,6 @@ import com.sbs.example.jspCommunity.dto.Board;
 import com.sbs.example.jspCommunity.service.ArticleService;
 
 public class ArticleController {
-
 	private ArticleService articleService;
 
 	public ArticleController() {
@@ -25,8 +24,7 @@ public class ArticleController {
 
 		Board board = articleService.getBoardById(boardId);
 		req.setAttribute("board", board);
-		
-		
+
 		List<Article> articles = articleService.getForPrintArticlesByBoardId(boardId);
 
 		req.setAttribute("articles", articles);
@@ -34,17 +32,17 @@ public class ArticleController {
 		return "usr/article/list";
 	}
 
-	public String showdetail(HttpServletRequest req, HttpServletResponse resp) {
+	public String showDetail(HttpServletRequest req, HttpServletResponse resp) {
 		int id = Integer.parseInt(req.getParameter("id"));
 
 		Article article = articleService.getForPrintArticleById(id);
-		
-		if (article == null ) {
+
+		if (article == null) {
 			req.setAttribute("alertMsg", id + "번 게시물은 존재하지 않습니다.");
 			req.setAttribute("historyBack", true);
 			return "common/redirect";
 		}
-		
+
 		req.setAttribute("article", article);
 
 		return "usr/article/detail";
@@ -77,5 +75,4 @@ public class ArticleController {
 		req.setAttribute("replaceUrl", String.format("detail?id=%d", newArticleId));
 		return "common/redirect";
 	}
-
 }

@@ -23,4 +23,3 @@ public class Board {
 		return "Board [id=" + id + ", regDate=" + regDate + ", updateDate=" + updateDate + ", code=" + code + ", name=" + name + "]";
 	}
 }
-

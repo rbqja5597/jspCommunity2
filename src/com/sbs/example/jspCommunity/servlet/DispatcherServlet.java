@@ -14,7 +14,6 @@ import com.sbs.example.jspCommunity.controller.usr.ArticleController;
 import com.sbs.example.jspCommunity.controller.usr.MemberController;
 import com.sbs.example.mysqlutil.MysqlUtil;
 
-
 @WebServlet("/usr/*")
 public class DispatcherServlet extends HttpServlet {
 	@Override
@@ -29,41 +28,40 @@ public class DispatcherServlet extends HttpServlet {
 			resp.getWriter().append("올바른 요청이 아닙니다.");
 			return;
 		}
-		
+
 		String controllerName = requestUriBits[3];
 		String actionMethodName = requestUriBits[4];
-		
+
 		MysqlUtil.setDBInfo("127.0.0.1", "sbsst", "sbs123414", "jspCommunity");
-		
+
 		String jspPath = null;
-		
+
 		if (controllerName.equals("member")) {
-			MemberController memberController = Container.memberContrller;
-		
+			MemberController memberController = Container.memberController;
+
 			if (actionMethodName.equals("list")) {
 				jspPath = memberController.showList(req, resp);
 			}
-		}
-		else if (controllerName.equals("article")) {
+		} else if (controllerName.equals("article")) {
 			ArticleController articleController = Container.articleController;
-		 
+
 			if (actionMethodName.equals("list")) {
 				jspPath = articleController.showList(req, resp);
 			}
 			else if (actionMethodName.equals("detail")) {
-				jspPath = articleController.showdetail(req, resp);
+				jspPath = articleController.showDetail(req, resp);
 			}
 			else if (actionMethodName.equals("write")) {
 				jspPath = articleController.showWrite(req, resp);
 			}
-			else if (actionMethodName.equals("dowrite")) {
+			else if (actionMethodName.equals("doWrite")) {
 				jspPath = articleController.doWrite(req, resp);
 			}
 		}
-		
+
 		MysqlUtil.closeConnection();
 
-		RequestDispatcher rd = req.getRequestDispatcher("/jsp/"+ jspPath +".jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/jsp/" + jspPath + ".jsp");
 		rd.forward(req, resp);
 	}
 	

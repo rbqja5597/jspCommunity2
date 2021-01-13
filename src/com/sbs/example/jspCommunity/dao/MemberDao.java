@@ -11,19 +11,20 @@ import com.sbs.example.mysqlutil.SecSql;
 public class MemberDao {
 
 	public List<Member> getForPrintMembers() {
-			List<Member> members = new ArrayList<>();
+		List<Member> members = new ArrayList<>();
 
-			SecSql sql = new SecSql();
-			sql.append("SELECT M.*");
-			sql.append("FROM `member` AS M");
-			sql.append("ORDER BY M.id DESC");
-			
-			List<Map<String, Object>> mapList = MysqlUtil.selectRows(sql);
+		SecSql sql = new SecSql();
+		sql.append("SELECT M.*");
+		sql.append("FROM `member` AS M");
+		sql.append("ORDER BY M.id DESC");
 
-			for (Map<String, Object> map : mapList) {
-				members.add(new Member(map));
-			}
+		List<Map<String, Object>> mapList = MysqlUtil.selectRows(sql);
 
-			return members;
+		for (Map<String, Object> map : mapList) {
+			members.add(new Member(map));
 		}
+
+		return members;
 	}
+
+}

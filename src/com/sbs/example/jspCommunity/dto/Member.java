@@ -13,7 +13,6 @@ public class Member {
 	public String email;
 	public String cellphoneNo;
 	public int authLevel;
-	
 
 	public Member(Map<String, Object> map) {
 		this.id = (int) map.get("id");
@@ -26,18 +25,12 @@ public class Member {
 		this.email = (String) map.get("email");
 		this.cellphoneNo = (String) map.get("cellphoneNo");
 		this.authLevel = (int) map.get("authLevel");
-
 	}
-
 
 	@Override
 	public String toString() {
-		return "Member [id=" + id + ", regDate=" + regDate + ", updateDate=" + updateDate + ", loginId=" + loginId
-				+ ", loginPw=" + loginPw + ", name=" + name + ", nickname=" + nickname + ", email=" + email
-				+ ", cellphoneNo=" + cellphoneNo + ", authLevel=" + authLevel + "]";
+		return "Member [id=" + id + ", regDate=" + regDate + ", updateDate=" + updateDate + ", loginId=" + loginId + ", loginPw=" + loginPw + ", name=" + name + ", nickname=" + nickname + ", email=" + email + ", cellphoneNo=" + cellphoneNo
+				+ ", authLevel=" + authLevel + "]";
 	}
-	
-	
-	
-}
 
+}
