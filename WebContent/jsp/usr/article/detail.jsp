@@ -2,7 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.Map"%>
 <%@ page import="com.sbs.example.jspCommunity.dto.Article"%>
+<%@ page import="com.sbs.example.jspCommunity.dto.Board"%>
+
 <%
+Board board = (Board) request.getAttribute("board");
 Article article = (Article) request.getAttribute("article");
 %>
 <!doctype html>
@@ -13,6 +16,9 @@ Article article = (Article) request.getAttribute("article");
 </head>
 <body>
 	<h1>게시물 상세페이지</h1>
+	
+	
+	<a href="modify?memberId=<%=request.getParameter("memberId")%>&id=<%=request.getParameter("id")%>">게시물 수정</a>
 	
 	<div>
 		번호 :
@@ -36,6 +42,7 @@ Article article = (Article) request.getAttribute("article");
 	
 	<div>
 		<a href="list?boardId=<%=article.boardId%>">리스트로 이동</a>
+		
 	</div>
 </body>
 </html>

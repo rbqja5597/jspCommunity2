@@ -86,4 +86,19 @@ public class ArticleDao {
 		
 		return MysqlUtil.insert(sql);
 	}
+
+	public int modify(Map<String, Object> args) {
+		SecSql sql = new SecSql();
+
+		sql.append("UPDATE article");
+		sql.append(" SET updateDate = NOW()");
+		sql.append(", boardId = ?", args.get("boardId"));
+		sql.append(", memberId = ?", args.get("memberId"));
+		sql.append(", title = ?", args.get("title"));
+		sql.append(", body = ?", args.get("body"));
+		sql.append("WHERE id = ?", args.get("id"));
+
+		return MysqlUtil.update(sql);
+		
+	}
 }

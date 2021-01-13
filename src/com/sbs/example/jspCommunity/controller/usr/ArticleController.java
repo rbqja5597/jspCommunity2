@@ -75,4 +75,24 @@ public class ArticleController {
 		req.setAttribute("replaceUrl", String.format("detail?id=%d", newArticleId));
 		return "common/redirect";
 	}
+
+
+	public String doModify(HttpServletRequest req, HttpServletResponse resp) {
+		int memberId = Integer.parseInt(req.getParameter("memberId"));
+		int boardId = Integer.parseInt(req.getParameter("boardId"));
+		String title = req.getParameter("title");
+		String body = req.getParameter("body");
+
+		Map<String, Object> modifyArgs = new HashMap<>();
+		modifyArgs.put("memberId", memberId);
+		modifyArgs.put("boardId", boardId);
+		modifyArgs.put("title", title);
+		modifyArgs.put("body", body);
+
+		int newArticleId = articleService.modify(modifyArgs);
+
+		req.setAttribute("newArticleId", newArticleId);
+		req.setAttribute("replaceUrl", String.format("detail?id=%d", newArticleId));
+		return "common/redirect";
+	}
 }
