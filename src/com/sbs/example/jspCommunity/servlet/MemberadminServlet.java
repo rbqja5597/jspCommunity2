@@ -14,8 +14,8 @@ import com.sbs.example.jspCommunity.controller.usr.ArticleController;
 import com.sbs.example.jspCommunity.controller.usr.MemberController;
 import com.sbs.example.mysqlutil.MysqlUtil;
 
-@WebServlet("/usr/*")
-public class DispatcherServlet extends HttpServlet {
+@WebServlet("/adm/*")
+public class MemberadminServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
@@ -39,42 +39,10 @@ public class DispatcherServlet extends HttpServlet {
 		if (controllerName.equals("member")) {
 			MemberController memberController = Container.memberController;
 
-			if (actionMethodName.equals("join")) {
-				jspPath = memberController.showjoin(req, resp);
-			}
-			if (actionMethodName.equals("dojoin")) {
-				jspPath = memberController.dojoin(req, resp);
-			}
-
-		} else if (controllerName.equals("article")) {
-			ArticleController articleController = Container.articleController;
-
 			if (actionMethodName.equals("list")) {
-				jspPath = articleController.showList(req, resp);
-			}
-			else if (actionMethodName.equals("detail")) {
-				jspPath = articleController.showDetail(req, resp);
-			}
-			else if (actionMethodName.equals("modify")) {
-				jspPath = articleController.showModify(req, resp);
-			}
-			else if (actionMethodName.equals("doModify")) {
-				jspPath = articleController.doModify(req, resp);
-			}
-			else if (actionMethodName.equals("write")) {
-				jspPath = articleController.showWrite(req, resp);
-			}
-			else if (actionMethodName.equals("doWrite")) {
-				jspPath = articleController.doWrite(req, resp);
-			}
-			else if (actionMethodName.equals("doModify")) {
-				jspPath = articleController.doModify(req, resp);
-			}
-			else if (actionMethodName.equals("doDelete")) {
-				jspPath = articleController.doDelete(req, resp);
+				jspPath = memberController.showList(req, resp);
 			}
 		}
-
 		MysqlUtil.closeConnection();
 
 		RequestDispatcher rd = req.getRequestDispatcher("/jsp/" + jspPath + ".jsp");

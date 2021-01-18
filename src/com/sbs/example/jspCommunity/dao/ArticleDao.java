@@ -87,20 +87,6 @@ public class ArticleDao {
 		return MysqlUtil.insert(sql);
 	}
 
-	public int modify(Map<String, Object> args) {
-		SecSql sql = new SecSql();
-
-		sql.append("UPDATE article");
-		sql.append(" SET updateDate = NOW()");
-		sql.append(", boardId = ?", args.get("boardId"));
-		sql.append(", memberId = ?", args.get("memberId"));
-		sql.append(", title = ?", args.get("title"));
-		sql.append(", body = ?", args.get("body"));
-		sql.append("WHERE id = ?", args.get("id"));
-
-		return MysqlUtil.update(sql);
-		
-	}
 
 	public int delete(int id) {
 		SecSql sql = new SecSql();
@@ -109,5 +95,31 @@ public class ArticleDao {
 		
 		
 		return MysqlUtil.delete(sql);
+	}
+	
+	public int modify(Map<String, Object> args) {
+		SecSql sql = new SecSql();
+		sql.append("UPDATE article");
+		sql.append("SET updateDate = NOW()");
+
+		boolean needToUpdate = false;
+
+		if (args.get("title") != null) {
+			needToUpdate = true;
+			sql.append(", title = ?", args.get("title"));
+		}
+
+		if (args.get("body") != null) {
+			needToUpdate = true;
+			sql.append(", `body` = ?", args.get("body"));
+		}
+		
+		if ( needToUpdate == false ) {
+			return 0;
+		}
+
+		sql.append("WHERE id = ?", args.get("id"));
+
+		return MysqlUtil.update(sql);
 	}
 }

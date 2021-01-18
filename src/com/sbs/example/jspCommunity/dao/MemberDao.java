@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.sbs.example.jspCommunity.dto.Board;
 import com.sbs.example.jspCommunity.dto.Member;
 import com.sbs.example.mysqlutil.MysqlUtil;
 import com.sbs.example.mysqlutil.SecSql;
@@ -25,6 +26,35 @@ public class MemberDao {
 		}
 
 		return members;
+	}
+
+	public int join(Map<String, Object> joinArgs) {
+		SecSql sql = new SecSql();
+		sql.append("INSERT INTO `member`");
+		sql.append("SET regDate = NOW()");
+		sql.append(", updateDate = NOW()");
+		sql.append(", name = ?", joinArgs.get("name"));
+		sql.append(", loginId = ?", joinArgs.get("loginId"));
+		sql.append(", loginPw = ?", joinArgs.get("loginPw"));
+		sql.append(", email = ?", joinArgs.get("email"));
+		sql.append(", nickname = ?", joinArgs.get("nickname"));
+		
+		return MysqlUtil.insert(sql);
+	}
+
+	public Member getMemberById(int id) {
+		SecSql sql = new SecSql();
+		sql.append("SELECT M.*");
+		sql.append("FROM member AS M");
+		sql.append("WHERE M.id = ?", id);
+		
+		Map<String, Object> map = MysqlUtil.selectRow(sql);
+		
+		if ( map.isEmpty() ) {
+			return null;
+		}
+
+		return new Member(map);
 	}
 
 }
