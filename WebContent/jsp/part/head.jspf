@@ -39,7 +39,7 @@
       </ul>
     </nav>
     <a href="#" class="text-nickname flex-as-c">
-      ${param.nickname}
+      ${member.nickname}
     </a>
     
   </section>
