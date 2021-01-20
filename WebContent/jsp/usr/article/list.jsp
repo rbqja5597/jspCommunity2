@@ -6,9 +6,11 @@
 <%@ include file="../../part/head.jspf"%>
 <h1>${pageTitle}</h1>
 
+<br>
 <div>
 	<a href="write?boardId=${param.boardId}">게시물 작성</a>
 </div>
+<br>
 <c:forEach items="${articles}" var="article">
 <div>
 	번호 : ${article.id}
@@ -19,9 +21,11 @@
 	<br />
 	작성자 : ${article.extra__writer}
 	<br />
-	제목 :
-	<a href="detail?id=${article.id}">${article.title}</a>
+	제목 : ${article.title}
+	<br>
+	<a href="detail?id=${article.id}">상세보기 </a>
 	<hr />
+	
 </div>
 </c:forEach>
 <%@ include file="../../part/foot.jspf"%>

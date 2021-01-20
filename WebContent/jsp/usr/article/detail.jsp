@@ -6,7 +6,7 @@
 <%@ include file="../../part/head.jspf"%>
 <h1>${pageTitle}</h1>
 
-<div>
+<section>
 	번호 : ${article.id}
 	<br />
 	작성날짜 : ${article.regDate}
@@ -16,15 +16,15 @@
 	작성자 : ${article.extra__writer}
 	<br />
 	제목 : ${article.title}
-</div>
+</section>
 
 <hr />
 
-<div>
+<section>
 	<a href="list?boardId=${article.boardId}">리스트로 이동</a>
 	<a href="modify?id=${article.id}">수정</a>
 	<a onclick="if ( confirm('정말 삭제하시겠습니까?') == false ) { return false; }"
 		href="doDelete?id=${article.id}">삭제</a>
-</div>
+</section>
 
 <%@ include file="../../part/foot.jspf"%>

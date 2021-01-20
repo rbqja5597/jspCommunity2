@@ -28,16 +28,17 @@ public class MemberDao {
 		return members;
 	}
 
-	public int join(Map<String, Object> joinArgs) {
+	public int join(Map<String, Object> args) {
 		SecSql sql = new SecSql();
 		sql.append("INSERT INTO `member`");
 		sql.append("SET regDate = NOW()");
 		sql.append(", updateDate = NOW()");
-		sql.append(", name = ?", joinArgs.get("name"));
-		sql.append(", loginId = ?", joinArgs.get("loginId"));
-		sql.append(", loginPw = ?", joinArgs.get("loginPw"));
-		sql.append(", email = ?", joinArgs.get("email"));
-		sql.append(", nickname = ?", joinArgs.get("nickname"));
+		sql.append(", loginId = ?", args.get("loginId"));
+		sql.append(", loginPw = ?", args.get("loginPw"));
+		sql.append(", `name` = ?", args.get("name"));
+		sql.append(", `email` = ?", args.get("email"));
+		sql.append(", `nickname` = ?", args.get("nickname"));
+		sql.append(", cellphoneNo = ?", args.get("cellphoneNo"));
 		
 		return MysqlUtil.insert(sql);
 	}
@@ -54,6 +55,23 @@ public class MemberDao {
 			return null;
 		}
 
+		return new Member(map);
+	}
+
+
+	public Member getMemberByLoginId(String loginId) {
+
+		SecSql sql = new SecSql();
+		sql.append("SELECT M.*");
+		sql.append("FROM `member` AS M");
+		sql.append("WHERE loginId = ?", loginId);
+
+		Map<String, Object> map = MysqlUtil.selectRow(sql);
+		
+		if (map.isEmpty()) {
+			return null;
+		}
+		
 		return new Member(map);
 	}
 

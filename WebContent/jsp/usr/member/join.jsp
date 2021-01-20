@@ -4,38 +4,132 @@
 
 <c:set var="pageTitle" value="회원가입" />
 <%@ include file="../../part/head.jspf"%>
-<h1>회원가입</h1>
+<h1>${pageTitle}</h1>
 
 <div>
-	<form action="doJoin" method="POST">
-		<input type="hidden" name="id" value="${member.id}" />
+	<script>
+	let DoJoinForm__submited = false;
+	function DoJoinForm__submit(form) {
+		if ( DoJoinForm__submited ) {
+			alert('처리중입니다.');
+			return;
+		}
+	
+		form.loginId.value = form.loginId.value.trim();
+	
+		if ( form.loginId.value.length == 0 ) {
+			alert('로그인 아이디를 입력해주세요.');
+			form.loginId.focus();
+			
+			return;
+		}
+		
+		form.loginPw.value = form.loginPw.value.trim();
+	
+		if ( form.loginPw.value.length == 0 ) {
+			alert('로그인 비밀번호를 입력해주세요.');
+			form.loginPw.focus();
+			
+			return;
+		}
+		
+		form.loginPwConfirm.value = form.loginPwConfirm.value.trim();
+	
+		if ( form.loginPwConfirm.value.length == 0 ) {
+			alert('로그인 비밀번호 확인을 입력해주세요.');
+			form.loginPwConfirm.focus();
+			
+			return;
+		}
+		
+		if ( form.loginPw.value != form.loginPwConfirm.value ) {
+			alert('로그인 비밀번호가 일치하지 않습니다.');
+			form.loginPwConfirm.focus();
+			
+			return;
+		}
+		
+		form.name.value = form.name.value.trim();
+	
+		if ( form.name.value.length == 0 ) {
+			alert('이름을 입력해주세요.');
+			form.name.focus();
+			
+			return;
+		}
 
-
+		form.email.value = form.email.value.trim();
+		
+		if ( form.email.value.length == 0 ) {
+			alert('이메일을 입력해주세요.');
+			form.email.focus();
+			
+			return;
+		}
+				
+		form.nickname.value = form.nickname.value.trim();
+	
+		if ( form.nickname.value.length == 0 ) {
+			alert('닉네임을 입력해주세요.');
+			form.nickname.focus();
+			
+			return;
+		}
+		
+		
+		form.cellphoneNo.value = form.cellphoneNo.value.trim();
+	
+		if ( form.cellphoneNo.value.length == 0 ) {
+			alert('전화번호를 입력해주세요.');
+			form.cellphoneNo.focus();
+			
+			return;
+		}
+		
+		form.submit();
+		DoJoinForm__submited = true;
+	}
+	</script>
+	<form action="doJoin" method="POST" onsubmit="DoJoinForm__submit(this); return false;">
+	
 		<div>
-			이름 : <input name="name" type="text" maxlength="10"
-			placeholder="이름" />
+			아이디 : <input name="loginId" type="text" maxlength="50" 
+			placeholder="아이디를 입력해주세요." />
+		</div>
+		<br>
+		
+		<div>
+			비밀번호 : <input name="loginPw" type="password" maxlength="100"
+				placeholder="비밀번호를 입력해주세요." />
 		</div>
 		<br>
 		<div>
-			아이디 : <input name="loginId" type="text" maxlength="11" 
-			placeholder="아이디 입력 (5~11자)" />
+			비밀번호 확인 : <input name="loginPwConfirm" type="password" maxlength="100"
+				placeholder="비밀번호 확인을 입력해주세요." />
 		</div>
 		<br>
 		<div>
-			비밀번호 : <input name="loginPw" type="text" maxlength="20"
-				placeholder="비밀번호" />
+			이름 : <input name="name" type="text" maxlength="50"
+			placeholder="이름을 입력해주세요." />
 		</div>
 		<br>
 		<div>
-			이메일 : <input name="email" type="text" maxlength="20" placeholder="이메일" />
+			이메일 : <input name="email" type="email" maxlength="100"
+			placeholder="이메일을 입력해주세요." />
 		</div>
 		<br>
 		<div>
-			닉네임 : <input name="nickname" type="text" maxlength="10"
-				placeholder="닉네임 (3~6자)" />
+			닉네임 : <input name="nickname" type="text" maxlength="50"
+				placeholder="닉네임을 입력해주세요." />
 		</div>
 		<br>
 		<div>
+			전화번호 : <input name="cellphoneNo" type="number" maxlength="100"
+				placeholder="전화번호를 입력해주세요." />
+		</div>
+		<br>
+		<div>
+		<br>
 			<div>
 				<input type="submit" value="회원가입" />
 				<button type="button" onclick="history.back();">뒤로가기</button>

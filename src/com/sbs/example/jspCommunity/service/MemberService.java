@@ -19,12 +19,16 @@ public class MemberService {
 		return memberDao.getForPrintMembers();
 	}
 
-	public int join(Map<String, Object> joinArgs) {
-		return memberDao.join(joinArgs);
+	public int join(Map<String, Object> args) {
+		return memberDao.join(args);
 	}
 
 	public Member getMemberById(int id) {
 		return memberDao.getMemberById(id);
+	}
+
+	public Member getMemberByLoginId(String loginId) {
+		return memberDao.getMemberByLoginId(loginId);
 	}
 
 }
