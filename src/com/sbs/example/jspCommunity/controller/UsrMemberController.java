@@ -144,7 +144,8 @@ public class UsrMemberController {
 		String loginId = req.getParameter("loginId");
 
 		Member member = memberService.getMemberByLoginId(loginId);
-
+		
+		
 		String data = "";
 
 		if ( member != null ) {
