@@ -9,58 +9,25 @@
 <div>
 	<script>
 	let DoJoinForm__submited = false;
-	let DoJoinForm__checkedLoginId = "";
-	
-	// 로그인 아이디 중복체크
-	function DoJoinForm__checkLoginIdDup(el) {
-		const form =  $(el).closest('form').get(0);
-		const loginId = form.loginId.value;
-		
-		$.get(
-			"getLoginIdDup",
-			{
-				loginId
-			},
-			function(data) {
-				if ( data == "YES" ) {
-					alert("사용 가능한 아이디입니다.");
-					DoJoinForm__checkedLoginId = loginId;
-				}
-				else {
-					alert("이미 사용중인 아이디입니다.");
-				}
-			},
-			"html"
-		);
-	}
-	
-	// 폼 발송전 체크
 	function DoJoinForm__submit(form) {
 		if ( DoJoinForm__submited ) {
 			alert('처리중입니다.');
 			return;
 		}
-
 	
 		form.loginId.value = form.loginId.value.trim();
 	
 		if ( form.loginId.value.length == 0 ) {
-			alert('아이디를 입력해주세요.');
+			alert('로그인 아이디를 입력해주세요.');
 			form.loginId.focus();
 			
 			return;
-		}
-
-		if ( form.loginId.value != DoJoinForm__checkedLoginId ) {
-			alert('아이디 중복체크를 해주세요.');
-			form.btnLoginIdDupCheck.focus();
-			return false;
 		}
 		
 		form.loginPw.value = form.loginPw.value.trim();
 	
 		if ( form.loginPw.value.length == 0 ) {
-			alert('비밀번호를 입력해주세요.');
+			alert('로그인 비밀번호를 입력해주세요.');
 			form.loginPw.focus();
 			
 			return;
@@ -69,14 +36,14 @@
 		form.loginPwConfirm.value = form.loginPwConfirm.value.trim();
 	
 		if ( form.loginPwConfirm.value.length == 0 ) {
-			alert('비밀번호 확인을 입력해주세요.');
+			alert('로그인 비밀번호 확인을 입력해주세요.');
 			form.loginPwConfirm.focus();
 			
 			return;
 		}
 		
 		if ( form.loginPw.value != form.loginPwConfirm.value ) {
-			alert('비밀번호가 일치하지 않습니다.');
+			alert('로그인 비밀번호가 일치하지 않습니다.');
 			form.loginPwConfirm.focus();
 			
 			return;
@@ -128,8 +95,6 @@
 		<div>
 			아이디 : <input name="loginId" type="text" maxlength="50" 
 			placeholder="아이디를 입력해주세요." />
-			
-			<button onclick="DoJoinForm__checkLoginIdDup(this);" name="btnLoginIdDupCheck" type="button">중복체크</button>
 		</div>
 		<br>
 		

@@ -44,6 +44,9 @@ public class UsrDispatcherServlet extends DispatcherServlet {
 			if (actionMethodName.equals("doLogout")) {
 				jspPath = memberController.doLogout(req, resp);
 			}
+			if (actionMethodName.equals("getLoginIdDup")) {
+				jspPath = memberController.getLoginIdDup(req, resp);
+			}
 			
 			
 			
@@ -75,7 +78,6 @@ public class UsrDispatcherServlet extends DispatcherServlet {
 				jspPath = articleController.doDelete(req, resp);
 			}
 		}
-		
 		return jspPath;
 	}
 }
