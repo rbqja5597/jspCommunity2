@@ -4,8 +4,6 @@
 
 <c:set var="pageTitle" value="로그인" />
 <%@ include file="../../part/head.jspf"%>
-<h1>${pageTitle}</h1>
-
 <div>
 	<script>
 	let DoLoginForm__submited = false;
@@ -37,25 +35,16 @@
 		DoLoginForm__submited = true;
 	}
 	</script>
-	<form action="doLogin" method="POST" onsubmit="DoLoginForm__submit(this); return false;">
-	
-		<div>
-			아이디 : <input name="loginId" type="text" maxlength="50" 
-			placeholder="아이디를 입력해주세요" />
-		</div>
-		<br>
-		
-		<div>
-			비밀번호 : <input name="loginPw" type="password" maxlength="50"
-				placeholder="비밀번호를 입력해주세요" />
-		</div>
-		<div>
-		<br>
-			<div>
-				<input type="submit" value="로그인" />
-				<button type="button" onclick="history.back();">뒤로가기</button>
-			</div>
-		</div>
-	</form>
+	<form action="doLogin" method="POST" class="loginForm" onsubmit="DoLoginForm__submit(this); return false;">
+                                                                                               
+      <h2>${pageTitle}</h2>
+      <div class="idForm">
+        <input name="loginId" type="text" class="id" placeholder="아이디">
+      </div>
+      <div class="passForm">
+        <input name="loginPw" type="password" class="pw" placeholder="비밀번호">
+      </div>
+      <input type="submit" class="btn" value="LOG IN"/>
+    </form>
 </div>
 <%@ include file="../../part/foot.jspf"%>

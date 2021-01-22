@@ -79,26 +79,12 @@ public class UsrMemberController {
 	}
 
 	public String showlogin(HttpServletRequest req, HttpServletResponse resp) {
-		HttpSession session = req.getSession();
-
-		if (session.getAttribute("loginedMemberId") != null) {
-			req.setAttribute("alertMsg", "로그아웃 후 이용해주세요");
-			req.setAttribute("historyBack", true);
-			return "common/redirect";
-		}
-
 		return "usr/member/login";
 	}
 
 	public String doLogin(HttpServletRequest req, HttpServletResponse resp) {
-		HttpSession session = req.getSession();
-
-		if (session.getAttribute("loginedMemberId") != null) {
-			req.setAttribute("alertMsg", "로그아웃 후 이용해주세요");
-			req.setAttribute("historyBack", true);
-			return "common/redirect";
-		}
-
+		HttpSession session = req.getSession();		
+		
 		String loginId = req.getParameter("loginId");
 		String loginPw = req.getParameter("loginPw");
 
@@ -126,13 +112,6 @@ public class UsrMemberController {
 	
 	public String doLogout(HttpServletRequest req, HttpServletResponse resp) {
 		HttpSession session = req.getSession();
-
-		if (session.getAttribute("loginedMemberId") == null) {
-			req.setAttribute("alertMsg", "이미 로그아웃 상태입니다.");
-			req.setAttribute("historyBack", true);
-			return "common/redirect";
-		}
-		
 		session.removeAttribute("loginedMemberId");
 
 		req.setAttribute("alertMsg", "로그아웃 되었습니다.");
