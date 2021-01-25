@@ -12,69 +12,59 @@ import com.sbs.example.jspCommunity.controller.UsrMemberController;
 @WebServlet("/usr/*")
 public class UsrDispatcherServlet extends DispatcherServlet {
 	@Override
-	protected String doAction(HttpServletRequest req, HttpServletResponse resp, String controllerName, String actionMethodName){
+	protected String doAction(HttpServletRequest req, HttpServletResponse resp, String controllerName,
+			String actionMethodName) {
 		String jspPath = null;
-		
+
 		if (controllerName.equals("home")) {
 			UsrHomeController homrController = Container.homeController;
-			
+
 			if (actionMethodName.equals("main")) {
 				jspPath = homrController.showMain(req, resp);
-			}	
+			}
 		}
-		
+
 		else if (controllerName.equals("member")) {
 			UsrMemberController memberController = Container.memberController;
-			
+
 			if (actionMethodName.equals("list")) {
 				jspPath = memberController.showList(req, resp);
-			}			
-			if (actionMethodName.equals("join")) {
+			} else if (actionMethodName.equals("findLoginId")) {
+				jspPath = memberController.showFindLoginId(req, resp);
+			} else if (actionMethodName.equals("doFindLoginId")) {
+				jspPath = memberController.doFindLoginId(req, resp);
+			}  else if (actionMethodName.equals("join")) {
 				jspPath = memberController.showjoin(req, resp);
-			}
-			if (actionMethodName.equals("doJoin")) {
+			} else if (actionMethodName.equals("doJoin")) {
 				jspPath = memberController.doJoin(req, resp);
-			}
-			if (actionMethodName.equals("login")) {
+			} else if (actionMethodName.equals("login")) {
 				jspPath = memberController.showlogin(req, resp);
-			}
-			if (actionMethodName.equals("doLogin")) {
+			} else if (actionMethodName.equals("doLogin")) {
 				jspPath = memberController.doLogin(req, resp);
-			}
-			if (actionMethodName.equals("doLogout")) {
+			} else if (actionMethodName.equals("doLogout")) {
 				jspPath = memberController.doLogout(req, resp);
-			}
-			if (actionMethodName.equals("getLoginIdDup")) {
+			} else if (actionMethodName.equals("getLoginIdDup")) {
 				jspPath = memberController.getLoginIdDup(req, resp);
 			}
-			
-			
-			
+
 		} else if (controllerName.equals("article")) {
 			UsrArticleController articleController = Container.articleController;
 
 			if (actionMethodName.equals("list")) {
 				jspPath = articleController.showList(req, resp);
-			}
-			else if (actionMethodName.equals("detail")) {
+			} else if (actionMethodName.equals("detail")) {
 				jspPath = articleController.showDetail(req, resp);
-			}
-			else if (actionMethodName.equals("modify")) {
+			} else if (actionMethodName.equals("modify")) {
 				jspPath = articleController.showModify(req, resp);
-			}
-			else if (actionMethodName.equals("doModify")) {
+			} else if (actionMethodName.equals("doModify")) {
 				jspPath = articleController.doModify(req, resp);
-			}
-			else if (actionMethodName.equals("write")) {
+			} else if (actionMethodName.equals("write")) {
 				jspPath = articleController.showWrite(req, resp);
-			}
-			else if (actionMethodName.equals("doWrite")) {
+			} else if (actionMethodName.equals("doWrite")) {
 				jspPath = articleController.doWrite(req, resp);
-			}
-			else if (actionMethodName.equals("doModify")) {
+			} else if (actionMethodName.equals("doModify")) {
 				jspPath = articleController.doModify(req, resp);
-			}
-			else if (actionMethodName.equals("doDelete")) {
+			} else if (actionMethodName.equals("doDelete")) {
 				jspPath = articleController.doDelete(req, resp);
 			}
 		}

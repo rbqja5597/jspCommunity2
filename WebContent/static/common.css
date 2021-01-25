@@ -284,7 +284,7 @@ label[for] {
 
 .loginForm {
   position:absolute;
-  width:300px;
+  width:350px;
   height:350px;
   padding: 30px, 20px;
   background-color: #ebebeb;
@@ -352,6 +352,27 @@ label[for] {
 
 .btn:hover {
   background-position: right;
+}
+
+
+.loginForm .loginMenu {
+  text-align:center;
+  margin:36px 0 0 0;
+}
+.loginForm .loginMenu li {
+  display:inline-block;
+  height:14px;
+  line-height:14px;
+  margin:4px 0 3px 0;
+}
+
+.loginForm .loginMenu li.idsearch {
+  margin:5px 20px 10px 20px;
+}
+
+.loginForm .loginMenu li a {
+  font-size:16px;
+  color:#aaa;
 }
 
 /* 로그인 폼 끝 */

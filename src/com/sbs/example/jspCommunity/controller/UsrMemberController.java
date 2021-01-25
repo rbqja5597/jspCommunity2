@@ -49,7 +49,7 @@ public class UsrMemberController {
 		}
 
 		String loginId = req.getParameter("loginId");
-		String loginPw = req.getParameter("loginPw");
+		String loginPw = req.getParameter("loginPwReal");
 		String name = req.getParameter("name");
 		String nickname = req.getParameter("nickname");
 		String email = req.getParameter("email");
@@ -86,7 +86,7 @@ public class UsrMemberController {
 		HttpSession session = req.getSession();		
 		
 		String loginId = req.getParameter("loginId");
-		String loginPw = req.getParameter("loginPw");
+		String loginPw = req.getParameter("loginPwReal");
 
 		Member member = memberService.getMemberByLoginId(loginId);
 
@@ -136,6 +136,36 @@ public class UsrMemberController {
 
 		req.setAttribute("data", data);
 		return "common/pure";
+	}
+
+	public String showFindLoginId(HttpServletRequest req, HttpServletResponse resp) {
+		HttpSession session = req.getSession();
+		
+		if (session.getAttribute("loginMemberId") != null) {
+			req.setAttribute("alertMsg", "로그아웃 후 진행해주세요.");
+			req.setAttribute("historyBack", true);
+			return "common/redirect";
+		}
+		
+		return "usr/member/findLoginId";
+	}
+
+	public String doFindLoginId(HttpServletRequest req, HttpServletResponse resp) {		
+		
+		String name = req.getParameter("name");
+		String email = req.getParameter("email");
+
+		Member member = memberService.getMemberByNameAndEmail(name, email);
+
+		if (member == null) {
+			req.setAttribute("alertMsg", "존재하지 않는 아이디입니다.");
+			req.setAttribute("historyBack", true);
+			return "common/redirect";
+		}
+		
+		req.setAttribute("alertMsg", String.format("아이디는 %s 입니다.", member.getLoginId()));
+		req.setAttribute("replaceUrl", "../member/login");
+		return "common/redirect";
 	}
 
 }

@@ -4,6 +4,10 @@
 
 <c:set var="pageTitle" value="로그인" />
 <%@ include file="../../part/head.jspf"%>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
+
+
 <div>
 	<script>
 	let DoLoginForm__submited = false;
@@ -30,12 +34,17 @@
 			
 			return;
 		}
+
+		form.loginPwReal.value = sha256(form.loginPw.value);
+
+		form.loginPw.value = "";
 		
 		form.submit();
 		DoLoginForm__submited = true;
 	}
 	</script>
 	<form action="doLogin" method="POST" class="loginForm" onsubmit="DoLoginForm__submit(this); return false;">
+      <input type="hidden" name="loginPwReal"/>
                                                                                                
       <h2>${pageTitle}</h2>
       <div class="idForm">
@@ -45,6 +54,18 @@
         <input name="loginPw" type="password" class="pw" placeholder="비밀번호">
       </div>
       <input type="submit" class="btn" value="LOG IN"/>
+      <ul class="loginMenu">
+                    <li class="join">
+                        <a href="join" title="회원가입" id="member-join">회원 가입</a>
+                    </li>
+                    <li class="idsearch">
+                        <a href="findLoginId" id="id-search" >아이디 찾기</a>
+                    </li>
+                    <li class="pwsearch">
+                        <a href="#" id="pw-search">비밀번호 찾기</a>
+                    </li>
+                </ul>
     </form>
+    
 </div>
 <%@ include file="../../part/foot.jspf"%>
