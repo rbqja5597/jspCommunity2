@@ -11,6 +11,10 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/common.css" />
 <script src="${pageContext.request.contextPath}/static/common.js"></script>
 
+<!-- 제이쿼리 불러오기 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
 </head>
 <body>
 
@@ -29,17 +33,17 @@
             <li><a class="height-100p flex flex-ai-c" href="../article/list?boardId=3">자유</a>
           </ul>
         </li>
-        <c:if test="${sessionScope.loginedMemberId == null }">
+        <c:if test="${isLogined == false}">
 		<li><a class="height-100p flex flex-ai-c" href="../member/login">로그인</a></li>
         <li><a class="height-100p flex flex-ai-c" href="../member/join">회원가입</a></li>
 		</c:if>
-		<c:if test="${sessionScope.loginedMemberId > 0 }">
+		<c:if test="${isLogined}">
 		<li><a class="height-100p flex flex-ai-c" href="../member/doLogout">로그아웃</a></li>
 		</c:if>
       </ul>
     </nav>
     <a href="#" class="text-nickname flex-as-c">
-      ${member.nickname}
+      
     </a>
     
   </section>

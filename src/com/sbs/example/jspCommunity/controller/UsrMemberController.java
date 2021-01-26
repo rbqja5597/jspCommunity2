@@ -168,4 +168,41 @@ public class UsrMemberController {
 		return "common/redirect";
 	}
 
+	public String showFindLoginPw(HttpServletRequest req, HttpServletResponse resp) {
+		HttpSession session = req.getSession();
+		
+		if (session.getAttribute("loginMemberId") != null) {
+			req.setAttribute("alertMsg", "로그아웃 후 진행해주세요.");
+			req.setAttribute("historyBack", true);
+			return "common/redirect";
+		}
+		
+		return "usr/member/findLoginPw";
+	}
+
+	public String doFindLoginPw(HttpServletRequest req, HttpServletResponse resp) {		
+		
+		String loginId = req.getParameter("loginId");
+		String email = req.getParameter("email");
+
+		Member member = memberService.getMemberByLoginId(loginId);
+
+		if (member == null) {
+			req.setAttribute("alertMsg", "존재하지 않는 아이디입니다.");
+			req.setAttribute("historyBack", true);
+			return "common/redirect";
+		}
+		if (member.getEmail().equals(email) == false ) {
+			req.setAttribute("alertMsg", "이메일 주소를 정확히 입력해주세요.");
+			req.setAttribute("historyBack", true);
+			return "common/redirect";
+		}
+		
+		req.setAttribute("alertMsg", String.format("고객님의 새 임시 패스워드가 %s (으)로 발송되었습니다.", member.getEmail()));
+		req.setAttribute("replaceUrl", "../member/login");
+		return "common/redirect";
+	}
+
+	
+
 }

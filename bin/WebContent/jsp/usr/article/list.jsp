@@ -4,6 +4,9 @@
 
 <c:set var="pageTitle" value="${board.name} 게시물 리스트" />
 <%@ include file="../../part/head.jspf"%>
+
+<section class="section_1 con-min-width">
+<div class="con">
 <h1>${pageTitle}</h1>
 
 <br>
@@ -11,21 +14,31 @@
 	<a href="write?boardId=${param.boardId}">게시물 작성</a>
 </div>
 <br>
-<c:forEach items="${articles}" var="article">
-<div>
-	번호 : ${article.id}
-	<br />
-	작성날짜 : ${article.regDate}
-	<br />
-	갱신날짜 : ${article.updateDate}
-	<br />
-	작성자 : ${article.extra__writer}
-	<br />
-	제목 : ${article.title}
-	<br>
-	<a href="detail?id=${article.id}">상세보기 </a>
-	<hr />
-	
+
+
+
+<table class="table">
+    <caption>표 제목</caption>
+    <tr>
+      <th>번호</th>
+      <th>제목</th>
+      <th>작성날짜</th>
+      <th>갱신날짜</th>
+      <th>작성자</th>
+      <th>상세보기</th>
+    </tr>
+  
+  <c:forEach items="${articles}" var="article">
+    <tr>
+      <td>${article.id}</td>
+      <td>${article.title}</td>
+      <td>${article.regDate}</td>
+      <td>${article.updateDate}</td>
+      <td>${article.extra__writer}</td>
+      <td><a href="detail?id=${article.id}">상세보기</a></td>
+   </tr>
+  </c:forEach>
+</table>  
 </div>
-</c:forEach>
+</section>  
 <%@ include file="../../part/foot.jspf"%>

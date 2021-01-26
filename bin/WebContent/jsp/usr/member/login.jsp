@@ -4,7 +4,9 @@
 
 <c:set var="pageTitle" value="로그인" />
 <%@ include file="../../part/head.jspf"%>
-<h1>${pageTitle}</h1>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
+
 
 <div>
 	<script>
@@ -32,30 +34,38 @@
 			
 			return;
 		}
+
+		form.loginPwReal.value = sha256(form.loginPw.value);
+
+		form.loginPw.value = "";
 		
 		form.submit();
 		DoLoginForm__submited = true;
 	}
 	</script>
-	<form action="doLogin" method="POST" onsubmit="DoLoginForm__submit(this); return false;">
-	
-		<div>
-			아이디 : <input name="loginId" type="text" maxlength="50" 
-			placeholder="아이디를 입력해주세요" />
-		</div>
-		<br>
-		
-		<div>
-			비밀번호 : <input name="loginPw" type="password" maxlength="50"
-				placeholder="비밀번호를 입력해주세요" />
-		</div>
-		<div>
-		<br>
-			<div>
-				<input type="submit" value="로그인" />
-				<button type="button" onclick="history.back();">뒤로가기</button>
-			</div>
-		</div>
-	</form>
+	<form action="doLogin" method="POST" class="loginForm" onsubmit="DoLoginForm__submit(this); return false;">
+      <input type="hidden" name="loginPwReal"/>
+                                                                                               
+      <h2>${pageTitle}</h2>
+      <div class="idForm">
+        <input name="loginId" type="text" class="id" placeholder="아이디">
+      </div>
+      <div class="passForm">
+        <input name="loginPw" type="password" class="pw" placeholder="비밀번호">
+      </div>
+      <input type="submit" class="btn" value="LOG IN"/>
+      <ul class="loginMenu">
+                    <li class="join">
+                        <a href="join" title="회원가입" id="member-join">회원 가입</a>
+                    </li>
+                    <li class="idsearch">
+                        <a href="findLoginId" id="id-search" >아이디 찾기</a>
+                    </li>
+                    <li class="pwsearch">
+                        <a href="findLoginPw" id="pw-search">비밀번호 찾기</a>
+                    </li>
+                </ul>
+    </form>
+    
 </div>
 <%@ include file="../../part/foot.jspf"%>
