@@ -124,4 +124,14 @@ ALTER TABLE `member` CHANGE `loginId` `loginId` CHAR(50) NOT NULL AFTER `updateD
                      ADD COLUMN `cellphoneNo` CHAR(20) NOT NULL AFTER `email`;
                      
 # adminLevel을 authLevel로 변경
-ALTER TABLE `member` CHANGE `adminLevel` `authLevel` TINYINT(1) UNSIGNED DEFAULT 2 NOT NULL COMMENT '0=탈퇴/1=로그인정지/2=일반/3=인증된,4=관리자'; 
+ALTER TABLE `member` CHANGE `adminLevel` `authLevel` TINYINT(1) UNSIGNED DEFAULT 2 NOT NULL COMMENT '0=탈퇴/1=로그인정지/2=일반/3=인증된,4=관리자';
+
+SELECT id, loginPw, SHA2(loginPw, 256)
+FROM `member`
+WHERE id < 9;
+
+UPDATE `member`
+SET loginPw = SHA2(loginPw, 256)
+WHERE id < 9;
+
+SELECT * FROM `member`;
