@@ -167,6 +167,11 @@ label[for] {
     }
 .table caption{caption-side: bottom; display: none;}
 
+.con .bottom.page {
+	text-align: center;
+	left:20%;
+}
+
 /* 게시물 리스트 끝 */
 
 /* 회원가입 폼 시작 */
@@ -376,3 +381,5 @@ label[for] {
 }
 
 /* 로그인 폼 끝 */
+
+

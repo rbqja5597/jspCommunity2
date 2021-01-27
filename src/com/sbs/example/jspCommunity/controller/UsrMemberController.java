@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.sbs.example.jspCommunity.container.Container;
 import com.sbs.example.jspCommunity.dto.Member;
+import com.sbs.example.jspCommunity.dto.ResultData;
 import com.sbs.example.jspCommunity.service.MemberService;
 
 public class UsrMemberController {
@@ -123,19 +124,20 @@ public class UsrMemberController {
 		String loginId = req.getParameter("loginId");
 
 		Member member = memberService.getMemberByLoginId(loginId);
-		
-		
-		String data = "";
 
-		if ( member != null ) {
-			data = "NO";
-		}
-		else {
-			data = "YES";
+		String resultCode = null;
+		String msg = null;
+
+		if (member != null) {
+			resultCode = "F-1";
+			msg = "이미 사용중인 로그인아이디 입니다.";
+		} else {
+			resultCode = "S-1";
+			msg = "사용가능한 로그인아이디 입니다.";
 		}
 
-		req.setAttribute("data", data);
-		return "common/pure";
+		req.setAttribute("data", new ResultData(resultCode, msg, "loginId", loginId));
+		return "common/json";
 	}
 
 	public String showFindLoginId(HttpServletRequest req, HttpServletResponse resp) {
@@ -170,39 +172,53 @@ public class UsrMemberController {
 
 	public String showFindLoginPw(HttpServletRequest req, HttpServletResponse resp) {
 		HttpSession session = req.getSession();
-		
-		if (session.getAttribute("loginMemberId") != null) {
+
+		if (session.getAttribute("loginedMemberId") != null) {
 			req.setAttribute("alertMsg", "로그아웃 후 진행해주세요.");
 			req.setAttribute("historyBack", true);
 			return "common/redirect";
 		}
-		
+
 		return "usr/member/findLoginPw";
 	}
 
-	public String doFindLoginPw(HttpServletRequest req, HttpServletResponse resp) {		
-		
+	public String doFindLoginPw(HttpServletRequest req, HttpServletResponse resp) {
+		HttpSession session = req.getSession();
+
+		if (session.getAttribute("loginedMemberId") != null) {
+			req.setAttribute("alertMsg", "로그아웃 후 진행해주세요.");
+			req.setAttribute("historyBack", true);
+			return "common/redirect";
+		}
+
 		String loginId = req.getParameter("loginId");
 		String email = req.getParameter("email");
 
 		Member member = memberService.getMemberByLoginId(loginId);
 
 		if (member == null) {
-			req.setAttribute("alertMsg", "존재하지 않는 아이디입니다.");
+			req.setAttribute("alertMsg", "일치하는 회원이 존재하지 않습니다.");
 			req.setAttribute("historyBack", true);
 			return "common/redirect";
 		}
-		if (member.getEmail().equals(email) == false ) {
-			req.setAttribute("alertMsg", "이메일 주소를 정확히 입력해주세요.");
+
+		if (member.getEmail().equals(email) == false) {
+			req.setAttribute("alertMsg", "회원이 이메일주소를 정확히 입력해주세요.");
+			req.setAttribute("historyBack", true);
+			return "common/redirect";
+		}
+
+		ResultData sendTempLoginPwToEmailRs = memberService.sendTempLoginPwToEmail(member);
+		
+		if (sendTempLoginPwToEmailRs.isFail()) {
+			req.setAttribute("alertMsg", sendTempLoginPwToEmailRs.getMsg());
 			req.setAttribute("historyBack", true);
 			return "common/redirect";
 		}
 		
-		req.setAttribute("alertMsg", String.format("고객님의 새 임시 패스워드가 %s (으)로 발송되었습니다.", member.getEmail()));
+		req.setAttribute("alertMsg", sendTempLoginPwToEmailRs.getMsg());
 		req.setAttribute("replaceUrl", "../member/login");
 		return "common/redirect";
-	}
-
-	
+	}	
 
 }

@@ -20,22 +20,22 @@
 		const loginId = form.loginId.value;
 		
 		$.get(
-			"getLoginIdDup",
-			{
-				loginId
-			},
-			function(data) {
-				if ( data == "YES" ) {
-					alert("사용 가능한 아이디입니다.");
-					DoJoinForm__checkedLoginId = loginId;
-				}
-				else {
-					alert("이미 사용중인 아이디입니다.");
-				}
-			},
-			"html"
-		);
-	}
+				"getLoginIdDup",
+				{
+					loginId
+				},
+				function(data) {
+					if ( data.msg ) {
+						alert(data.msg);
+					}
+				
+					if ( data.success ) {
+						DoJoinForm__checkedLoginId = data.body.loginId;
+					}
+				},
+				"json"
+			);
+		}
 	
 	// 폼 발송전 체크
 	function DoJoinForm__submit(form) {

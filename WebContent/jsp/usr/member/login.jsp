@@ -62,7 +62,7 @@
                         <a href="findLoginId" id="id-search" >아이디 찾기</a>
                     </li>
                     <li class="pwsearch">
-                        <a href="#" id="pw-search">비밀번호 찾기</a>
+                        <a href="findLoginPw" id="pw-search">비밀번호 찾기</a>
                     </li>
                 </ul>
     </form>
