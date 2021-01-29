@@ -61,7 +61,6 @@
 		<div>
 			<div>내용</div>
 			<div>
-				<textarea placeholder="내용을 입력해주세요." name="body" maxlength="5000"></textarea>
 				<script type="text/x-template"></script>
  				<div class="toast-ui-editor"></div>
 			</div>
