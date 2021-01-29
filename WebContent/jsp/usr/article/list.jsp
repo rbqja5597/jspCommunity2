@@ -100,8 +100,10 @@
 	color:red;
 }
 </style>
-
-<div class="con bottom-page">
+<br>
+<br>
+<section class="section_page">
+<div class="con bottom_page">
 	<!--
 	<c:set var="aUrl" value="?page=1&boardId=${param.boardId}&searchKeywordType=${param.searchKeywordType}&searchKeyword=${param.searchKeyword}" />
 	<a href="${aUrl}">◀◀</a>
@@ -127,10 +129,5 @@
 	<a href="${aUrl}">▶▶</a>
 	-->
 </div>
-
-<hr />
-<hr />
-<hr />
-<hr />
-<hr />
+</section>
 <%@ include file="../../part/foot.jspf"%>
