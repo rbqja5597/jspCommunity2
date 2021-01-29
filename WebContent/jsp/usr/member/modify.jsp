@@ -21,22 +21,6 @@
 			alert('처리중입니다.');
 			return;
 		}
-
-	
-		form.loginId.value = form.loginId.value.trim();
-	
-		if ( form.loginId.value.length == 0 ) {
-			alert('아이디를 입력해주세요.');
-			form.loginId.focus();
-			
-			return;
-		}
-
-		if ( form.loginId.value != DoModifyForm__checkedLoginId ) {
-			alert('아이디 중복체크를 해주세요.');
-			form.btnLoginIdDupCheck.focus();
-			return false;
-		}
 		
 		form.loginPw.value = form.loginPw.value.trim();
 	

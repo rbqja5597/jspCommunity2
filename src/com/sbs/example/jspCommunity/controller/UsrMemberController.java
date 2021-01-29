@@ -187,7 +187,7 @@ public class UsrMemberController {
 		}
 
 		if (member.getEmail().equals(email) == false) {
-			req.setAttribute("alertMsg", "회원이 이메일주소를 정확히 입력해주세요.");
+			req.setAttribute("alertMsg", "이메일주소를 정확히 입력해주세요.");
 			req.setAttribute("historyBack", true);
 			return "common/redirect";
 		}

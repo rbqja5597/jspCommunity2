@@ -28,9 +28,9 @@ public class Container {
 		memberDao = new MemberDao();
 		articleDao = new ArticleDao();
 		
+		emailService = new EmailService();
 		memberService = new MemberService();
 		articleService = new ArticleService();
-		emailService = new EmailService();
 		
 		admMemberController = new AdmMemberController();
 		memberController = new UsrMemberController();

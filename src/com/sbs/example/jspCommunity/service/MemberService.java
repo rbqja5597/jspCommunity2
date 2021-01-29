@@ -15,7 +15,7 @@ public class MemberService {
 
 	private MemberDao memberDao;
 	private EmailService emailService;
-	
+
 	public MemberService() {
 		memberDao = Container.memberDao;
 		emailService = Container.emailService;
@@ -51,20 +51,18 @@ public class MemberService {
 		body += "<a href=\"" + siteLoginUrl + "\" target=\"_blank\">로그인 하러가기</a>";
 
 		Map<String, Object> rs = new HashMap<>();
-		
+
 		// 메일 발송
 		int sendRs = emailService.send(actor.getEmail(), title, body);
 
 		if (sendRs != 1) {
 			return new ResultData("F-1", "메일 발송에 실패하였습니다.");
 		}
-		
+
 		setTempPassword(actor, tempPassword);
-		
+
 		String resultMsg = String.format("고객님의 새 임시 패스워드가 %s (으)로 발송되었습니다.", actor.getEmail());
-		return new ResultData("S-1", "resultMsg", "email", actor.getEmail());
-		
-	
+		return new ResultData("S-1", resultMsg, "email", actor.getEmail());
 	}
 
 	private void setTempPassword(Member actor, String tempPassword) {
