@@ -102,8 +102,10 @@ public abstract class DispatcherServlet extends HttpServlet {
 		// 로그인 필요 필터링 인터셉터 시작
 		
 		List<String> needToLoginActionUrls = new ArrayList<>();
-
+		
 		needToLoginActionUrls.add("/usr/member/doLogout");
+		needToLoginActionUrls.add("/usr/member/modify");
+		needToLoginActionUrls.add("/usr/member/doModify");
 		needToLoginActionUrls.add("/usr/article/write");
 		needToLoginActionUrls.add("/usr/article/doWrite");
 		needToLoginActionUrls.add("/usr/article/modify");
@@ -132,11 +134,13 @@ public abstract class DispatcherServlet extends HttpServlet {
 		needToLogoutActionUrls.add("/usr/member/doJoin");
 		needToLogoutActionUrls.add("/usr/member/findLoginId");
 		needToLogoutActionUrls.add("/usr/member/doFindLoginId");
+		needToLogoutActionUrls.add("/usr/member/findLoginPw");
+		needToLogoutActionUrls.add("/usr/member/doFindLoginPw");
 		
 		if (needToLogoutActionUrls.contains(actionUrl)) {
 			if ((boolean) req.getAttribute("isLogined")) {
 				req.setAttribute("alertMsg", "로그아웃 후 이용해주세요");
-				req.setAttribute("replaceUrl", "../home/main");
+				req.setAttribute("historyBack", true);
 				
 				RequestDispatcher rd = req.getRequestDispatcher("/jsp/common/redirect.jsp");
 				rd.forward(req, resp);

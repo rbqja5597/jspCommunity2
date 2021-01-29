@@ -37,10 +37,14 @@ public class UsrDispatcherServlet extends DispatcherServlet {
 				jspPath = memberController.showFindLoginPw(req, resp);
 			} else if (actionMethodName.equals("doFindLoginPw")) {
 				jspPath = memberController.doFindLoginPw(req, resp);
-			}  else if (actionMethodName.equals("join")) {
+			} else if (actionMethodName.equals("join")) {
 				jspPath = memberController.showjoin(req, resp);
 			} else if (actionMethodName.equals("doJoin")) {
 				jspPath = memberController.doJoin(req, resp);
+			} else if (actionMethodName.equals("modify")) {
+				jspPath = memberController.showModify(req, resp);
+			} else if (actionMethodName.equals("doModify")) {
+				jspPath = memberController.doModify(req, resp);
 			} else if (actionMethodName.equals("login")) {
 				jspPath = memberController.showlogin(req, resp);
 			} else if (actionMethodName.equals("doLogin")) {
@@ -49,6 +53,8 @@ public class UsrDispatcherServlet extends DispatcherServlet {
 				jspPath = memberController.doLogout(req, resp);
 			} else if (actionMethodName.equals("getLoginIdDup")) {
 				jspPath = memberController.getLoginIdDup(req, resp);
+			} else if (actionMethodName.equals("Profile")) {
+				jspPath = memberController.showProfile(req, resp);
 			}
 
 		} else if (controllerName.equals("article")) {

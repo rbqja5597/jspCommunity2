@@ -104,7 +104,7 @@ label[for] {
   padding:10px 20px;
   border-radius:22px;
   font-weight:bold;
-  color:white;
+  color:yellow;
 }
 
 .menu-box-1 > ul > li {
@@ -358,7 +358,6 @@ label[for] {
 .btn:hover {
   background-position: right;
 }
-
 
 .loginForm .loginMenu {
   text-align:center;

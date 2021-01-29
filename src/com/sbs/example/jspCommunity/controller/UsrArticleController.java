@@ -163,9 +163,6 @@ public class UsrArticleController {
 	}
 
 	public String showModify(HttpServletRequest req, HttpServletResponse resp) {
-
-		
-
 		int id = Integer.parseInt(req.getParameter("id"));
 
 		Article article = articleService.getForPrintArticleById(id);

@@ -60,13 +60,16 @@
         <li><a class="height-100p flex flex-ai-c" href="../member/join">회원가입</a></li>
 		</c:if>
 		<c:if test="${isLogined}">
+		<li><a class="height-100p flex flex-ai-c" href="../member/Profile">마이페이지</a></li>
 		<li><a class="height-100p flex flex-ai-c" href="../member/doLogout">로그아웃</a></li>
 		</c:if>
       </ul>
     </nav>
+    <c:if test="${isLogined}">
     <a href="#" class="text-nickname flex-as-c">
-      
+		${loginedMember.nickname}님
     </a>
+    </c:if>
     
   </section>
 </section>
