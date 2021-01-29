@@ -10,12 +10,13 @@
 <h1>${pageTitle}</h1>
 
 <br>
+<section class="writer_search">
 <div>
 	<a href="write?boardId=${param.boardId}">게시물 작성</a>
 </div>
 <br>
 
-<div>
+<div class="search">
 	<script>
 	let DoSearchForm__submited = false;
 	function DoSearchForm__submit(form) {
@@ -57,6 +58,7 @@
 		<input type="submit" value="검색" />
 	</form>
 </div>
+</section>
 
 <br>
 

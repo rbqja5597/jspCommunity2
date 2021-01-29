@@ -84,6 +84,18 @@ label[for] {
 
 /* 커스텀 끝 */
 
+/* 작성,검색 버튼 시작 */
+
+.writer_search {
+	display:flex;
+}
+
+.search {
+	display:flex-end;
+}
+/* 작성,검색 버튼 끝 */
+
+
 /* 메뉴 */
 
 .top-bar {
@@ -144,7 +156,7 @@ label[for] {
 /* 게시물 리스트 시작 */
 
 .table {
-     border-top:3px solid black;
+     border-top:3px solid #168;
   	 width:100%;
   	 border-collapse:collapse;
   	 table-layout:fixed;
@@ -180,7 +192,7 @@ label[for] {
 }
 
 .bottom_page {
-	letter-spacing:15px;
+	letter-spacing:13px;
 }
 
 /* 게시물 리스트 끝 */
