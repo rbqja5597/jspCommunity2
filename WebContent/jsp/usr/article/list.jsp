@@ -5,8 +5,10 @@
 <c:set var="pageTitle" value="${board.name} 게시물 리스트" />
 <%@ include file="../../part/head.jspf"%>
 
+<main>
 <section class="section_1 con-min-width">
 <div class="con">
+<br>
 <h1>${pageTitle}</h1>
 
 <br>
@@ -132,4 +134,5 @@
 	-->
 </div>
 </section>
+</main>
 <%@ include file="../../part/foot.jspf"%>

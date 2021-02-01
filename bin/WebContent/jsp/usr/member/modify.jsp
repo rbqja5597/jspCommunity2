@@ -2,64 +2,24 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<c:set var="pageTitle" value="회원가입" />
+<c:set var="pageTitle" value="회원정보수정" />
 <%@ include file="../../part/head.jspf"%>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
 
-
-<main>
 <h1>${pageTitle}</h1>
 
 <div>
 	<script>
-	let DoJoinForm__submited = false;
-	let DoJoinForm__checkedLoginId = "";
+	let DoModifyForm__submited = false;
+	let DoModifyForm__checkedLoginId = "";
 	
-	// 로그인 아이디 중복체크
-	function DoJoinForm__checkLoginIdDup(el) {
-		const form =  $(el).closest('form').get(0);
-		const loginId = form.loginId.value;
-		
-		$.get(
-				"getLoginIdDup",
-				{
-					loginId
-				},
-				function(data) {
-					if ( data.msg ) {
-						alert(data.msg);
-					}
-				
-					if ( data.success ) {
-						DoJoinForm__checkedLoginId = data.body.loginId;
-					}
-				},
-				"json"
-			);
-		}
 	
 	// 폼 발송전 체크
-	function DoJoinForm__submit(form) {
-		if ( DoJoinForm__submited ) {
+	function DoModifyForm__submit(form) {
+		if ( DoModifyForm__submited ) {
 			alert('처리중입니다.');
 			return;
-		}
-
-	
-		form.loginId.value = form.loginId.value.trim();
-	
-		if ( form.loginId.value.length == 0 ) {
-			alert('아이디를 입력해주세요.');
-			form.loginId.focus();
-			
-			return;
-		}
-
-		if ( form.loginId.value != DoJoinForm__checkedLoginId ) {
-			alert('아이디 중복체크를 해주세요.');
-			form.btnLoginIdDupCheck.focus();
-			return false;
 		}
 		
 		form.loginPw.value = form.loginPw.value.trim();
@@ -130,16 +90,13 @@
 		form.loginPwConfirm.value = "";
 		
 		form.submit();
-		DoJoinForm__submited = true;
+		DoModifyForm__submited = true;
 	}
 	</script>
-	<form action="doJoin" method="POST" onsubmit="DoJoinForm__submit(this); return false;">
+	<form action="doModify" method="POST" onsubmit="DoModifyForm__submit(this); return false;">
 		<input type="hidden" name="loginPwReal"/>
 		<div>
-			아이디 : <input name="loginId" type="text" maxlength="50" 
-			placeholder="아이디를 입력해주세요." />
-			
-			<button onclick="DoJoinForm__checkLoginIdDup(this);" name="btnLoginIdDupCheck" type="button">중복체크</button>
+			아이디 : ${loginedMember.loginId}
 		</div>
 		<br>
 		
@@ -155,32 +112,31 @@
 		<br>
 		<div>
 			이름 : <input name="name" type="text" maxlength="50"
-			placeholder="이름을 입력해주세요." />
+			placeholder="이름을 입력해주세요." value="${loginedMember.name}"/>
 		</div>
 		<br>
 		<div>
 			이메일 : <input name="email" type="email" maxlength="100"
-			placeholder="이메일을 입력해주세요." />
+			placeholder="이메일을 입력해주세요." value="${loginedMember.email}"/>
 		</div>
 		<br>
 		<div>
 			닉네임 : <input name="nickname" type="text" maxlength="50"
-				placeholder="닉네임을 입력해주세요." />
+				placeholder="닉네임을 입력해주세요." value="${loginedMember.nickname}"/>
 		</div>
 		<br>
 		<div>
 			전화번호 : <input name="cellphoneNo" type="tel"  maxlength="100"
-				placeholder="전화번호를 입력해주세요." />
+				placeholder="전화번호를 입력해주세요." value="${loginedMember.cellphoneNo}"/>
 		</div>
 		<br>
 		<div>
 		<br>
 			<div>
-				<input type="submit" value="회원가입" />
+				<input type="submit" value="수정" />
 				<button type="button" onclick="history.back();">뒤로가기</button>
 			</div>
 		</div>
 	</form>
 </div>
-</main>
 <%@ include file="../../part/foot.jspf"%>

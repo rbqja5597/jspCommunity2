@@ -7,8 +7,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
 
-
-<main>
 <h1>${pageTitle}</h1>
 
 <div>
@@ -49,5 +47,4 @@
 		</div>
 	</form>
 </div>
-</main>
 <%@ include file="../../part/foot.jspf"%>

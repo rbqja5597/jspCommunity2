@@ -84,6 +84,18 @@ label[for] {
 
 /* 커스텀 끝 */
 
+/* 작성,검색 버튼 시작 */
+
+.writer_search {
+	display:flex;
+}
+
+.search {
+	display:flex-end;
+}
+/* 작성,검색 버튼 끝 */
+
+
 /* 메뉴 */
 
 .top-bar {
@@ -91,7 +103,7 @@ label[for] {
 }
 
 .top-bar .menu-box-1 {
-  margin-right:30px;
+  margin-right:13px;
 }
 
 .top-bar .menu-box-1 > ul > li > a {
@@ -104,7 +116,7 @@ label[for] {
   padding:10px 20px;
   border-radius:22px;
   font-weight:bold;
-  color:white;
+  color:yellow;
 }
 
 .menu-box-1 > ul > li {
@@ -144,28 +156,44 @@ label[for] {
 /* 게시물 리스트 시작 */
 
 .table {
-      border-collapse: collapse;
-      border-top: 3px solid #168;
-    }  
+     border-top:3px solid #168;
+  	 width:100%;
+  	 border-collapse:collapse;
+  	 table-layout:fixed;
+}
+
+.table {
+	text-align:center;
+}
+
 .table th {
       color: #168;
       background: #f0f6f9;
-      text-align: center;
-    }
+}
+
 .table th, .table td {
-      padding: 10px;
-      border: 1px solid #ddd;
-    }
-.table th:first-child, .table td:first-child {
-      border-left: 0;
-    }
-.table th:last-child, .table td:last-child {
-      border-right: 0;
-    }
-.table tr td:first-child{
-      text-align: center;
-    }
-.table caption{caption-side: bottom; display: none;}
+      padding-top:15px;
+      padding-bottom:20px;
+}
+    
+.table tr {
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.table caption{
+	caption-side: bottom;
+	display: none;
+}
+
+
+.section_page {
+	margin-bottom:50px;
+	text-align:center;
+}
+
+.bottom_page {
+	letter-spacing:13px;
+}
 
 /* 게시물 리스트 끝 */
 
@@ -354,7 +382,6 @@ label[for] {
   background-position: right;
 }
 
-
 .loginForm .loginMenu {
   text-align:center;
   margin:36px 0 0 0;
@@ -376,3 +403,5 @@ label[for] {
 }
 
 /* 로그인 폼 끝 */
+
+

@@ -16,6 +16,9 @@
 	작성자 : ${article.extra__writer}
 	<br />
 	제목 : ${article.title}
+	<hr>
+	<script type="text/x-template">${article.body}</script>
+  <div class="toast-ui-viewer"></div>
 </section>
 
 <hr />

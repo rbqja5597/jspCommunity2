@@ -4,6 +4,11 @@
 
 <c:set var="pageTitle" value="메인화면" />
 <%@ include file="../../part/head.jspf"%>
-<h1>${pageTitle}</h1>
 
+
+  <main class="con-min-width">
+    <div class="con"></div>
+  </main>
+  
+  
 <%@ include file="../../part/foot.jspf"%>

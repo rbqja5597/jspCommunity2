@@ -60,7 +60,7 @@
 			<div>이메일</div>
 			<div>
 				<input name="email" type="email" maxlength="50"
-					placeholder="회원의 이메일 주소를 입력해주세요." />
+					placeholder="회원의 이메일주소를 입력해주세요." />
 			</div>
 		</div>
 

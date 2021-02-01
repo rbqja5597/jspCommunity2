@@ -4,8 +4,11 @@
 
 <c:set var="pageTitle" value="${article.extra__boardName} 게시물 상세페이지" />
 <%@ include file="../../part/head.jspf"%>
-<h1>${pageTitle}</h1>
 
+
+<main class="con-min-width">
+<div class="con">
+<h1>${pageTitle}</h1>
 <section>
 	번호 : ${article.id}
 	<br />
@@ -31,5 +34,10 @@
 
 	
 </section>
+</div>
+</main>
+
+
+
 
 <%@ include file="../../part/foot.jspf"%>

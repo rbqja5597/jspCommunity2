@@ -7,7 +7,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
 
-
+<main>
 <div>
 	<script>
 	let DoFindLoginIdForm__submited = false;
@@ -45,7 +45,7 @@
 	</script>
 	<form action="doFindLoginId" method="POST" onsubmit="DoFindLoginIdForm__submit(this); return false;">
 		<input type="hidden" name="loginPwReal" />
-		<hr />
+		<h2>${pageTitle}</h2>
 		<div>
 			<div>이름</div>
 			<div>
@@ -75,4 +75,5 @@
 		</div>
 	</form>
 </div>
+</main>
 <%@ include file="../../part/foot.jspf"%>
