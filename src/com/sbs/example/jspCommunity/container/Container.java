@@ -34,8 +34,9 @@ public class Container {
 		memberDao = new MemberDao();
 		articleDao = new ArticleDao();
 		
-		attrService = new AttrService();
+		
 		emailService = new EmailService();
+		attrService = new AttrService();
 		memberService = new MemberService();
 		articleService = new ArticleService();
 		
