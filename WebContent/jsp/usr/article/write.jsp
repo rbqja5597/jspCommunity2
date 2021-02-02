@@ -4,7 +4,13 @@
 
 <c:set var="pageTitle" value="${board.name} 게시물 작성" />
 <%@ include file="../../part/head.jspf"%>
-<h1>${pageTitle}</h1>
+
+<main class="con-min-width">
+<div class="con">
+ 
+
+<h1><i class="fas fa-edit"></i>&nbsp;${pageTitle}</h1>
+
 
 <div>
 	<script>
@@ -47,16 +53,16 @@
 		<input type="hidden" name="boardId" value="${board.id}" />
 		<input type="hidden" name="body" />
 		
-		<hr />
+		
 		<div>
-			<div>제목</div>
-			<div>
+		<div>
+			<div class="flex">제목</div>
 				<input name="title" type="text" maxlength="50"
 					placeholder="제목을 입력해주세요." />
 			</div>
 		</div>
 
-		<hr />
+		<br>
 
 		<div>
 			<div>내용</div>
@@ -65,14 +71,17 @@
  				<div class="toast-ui-editor"></div>
 			</div>
 		</div>
-		<hr />
+		<br>
 		<div>
 			<div>작성</div>
 			<div>
 				<input type="submit" value="작성" />
 				<button type="button" onclick="history.back();">뒤로가기</button>
 			</div>
-		</div>
+		</div>		
 	</form>
+	<br>
 </div>
+</div>
+</main>
 <%@ include file="../../part/foot.jspf"%>

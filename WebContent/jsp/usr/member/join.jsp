@@ -7,9 +7,9 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
 
+<main class="con-min-width">
+    <div class="con">
 
-<main>
-<h1>${pageTitle}</h1>
 
 <div>
 	<script>
@@ -133,13 +133,15 @@
 		DoJoinForm__submited = true;
 	}
 	</script>
-	<form action="doJoin" method="POST" onsubmit="DoJoinForm__submit(this); return false;">
+	<form action="doJoin" method="POST" class="joinForm" onsubmit="DoJoinForm__submit(this); return false;">
+	<h1>${pageTitle}</h1>
 		<input type="hidden" name="loginPwReal"/>
 		<div>
 			아이디 : <input name="loginId" type="text" maxlength="50" 
-			placeholder="아이디를 입력해주세요." />
+			placeholder="아이디를 입력해주세요." >
 			
 			<button onclick="DoJoinForm__checkLoginIdDup(this);" name="btnLoginIdDupCheck" type="button">중복체크</button>
+			</input>
 		</div>
 		<br>
 		
@@ -181,6 +183,7 @@
 			</div>
 		</div>
 	</form>
+</div>
 </div>
 </main>
 <%@ include file="../../part/foot.jspf"%>

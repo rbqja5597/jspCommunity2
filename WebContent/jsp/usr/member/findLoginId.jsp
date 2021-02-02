@@ -7,7 +7,8 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
 
-<main>
+<main class="con-min-width">
+    <div class="con">
 <div>
 	<script>
 	let DoFindLoginIdForm__submited = false;
@@ -54,7 +55,7 @@
 			</div>
 		</div>
 
-		<hr />
+		<br>
 
 		<div>
 			<div>이메일</div>
@@ -64,7 +65,7 @@
 			</div>
 		</div>
 
-		<hr />
+		<br>
 
 		<div>
 			<div>로그인아이디 찾기</div>
@@ -74,6 +75,7 @@
 			</div>
 		</div>
 	</form>
+</div>
 </div>
 </main>
 <%@ include file="../../part/foot.jspf"%>

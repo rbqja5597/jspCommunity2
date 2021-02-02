@@ -156,7 +156,7 @@ a {
 }
 
 .top-bar .text-nickname {
-  background-color:#000000;
+  background-color:#afafaf;
   padding:10px 20px;
   border-radius:22px;
   font-weight:bold;
@@ -233,8 +233,8 @@ a {
 }
 
 .table th, .table td {
-      padding-top:7px;
-      padding-bottom:8px;
+      padding-top:10px;
+      padding-bottom:10px;
 }
     
 .table tr {
@@ -262,7 +262,7 @@ a {
 
 .joinForm {
   position:absolute;
-  width:300px;
+  width:400px;
   height:400px;
   padding: 30px, 20px;
   background-color:#FFFFFF;
