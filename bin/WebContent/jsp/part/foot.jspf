@@ -1,4 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	
+	 <footer class="bottom-bar con-min-width">
+    <div class="con"></div>
+  </footer>
+	
+</div>
+	
 </body>
 </html>

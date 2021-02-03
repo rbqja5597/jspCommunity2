@@ -7,7 +7,8 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
 
-
+<main class="con-min-width">
+    <div class="con">
 <div>
 	<script>
 	let DoFindLoginIdForm__submited = false;
@@ -45,7 +46,7 @@
 	</script>
 	<form action="doFindLoginId" method="POST" onsubmit="DoFindLoginIdForm__submit(this); return false;">
 		<input type="hidden" name="loginPwReal" />
-		<hr />
+		<h2>${pageTitle}</h2>
 		<div>
 			<div>이름</div>
 			<div>
@@ -54,7 +55,7 @@
 			</div>
 		</div>
 
-		<hr />
+		<br>
 
 		<div>
 			<div>이메일</div>
@@ -64,7 +65,7 @@
 			</div>
 		</div>
 
-		<hr />
+		<br>
 
 		<div>
 			<div>로그인아이디 찾기</div>
@@ -75,4 +76,7 @@
 		</div>
 	</form>
 </div>
+</div>
+</main>
+<section></section>
 <%@ include file="../../part/foot.jspf"%>

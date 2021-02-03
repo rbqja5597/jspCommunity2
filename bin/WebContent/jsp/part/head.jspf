@@ -35,41 +35,43 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/static/common.css" />
 <script src="${pageContext.request.contextPath}/static/common.js" defer></script>
-
-
 </head>
 <body>
-
-<section class="top-bar con-min-width bg-gray">
-  <section class="con flex height-100p">
+<div class="body-content">
+	<section class="top-bar con-min-width bg-gray">
+  		<section class="con flex height-100p">
     <a href="../home/main" class="logo flex flex-ai-c">
-      LOGO
+    SPURS      
     </a>
     <div class="flex-grow-1"></div>
     <nav class="menu-box-1">
       <ul class="flex height-100p">
-        <li><a class="height-100p flex flex-ai-c" href="#">게시판</a>
+        <li><a class="height-100p flex flex-ai-c" href="#">
+        <i class="fas fa-list"></i>&nbsp;게시판</a>
           <ul>
-            <li><a class="height-100p flex flex-ai-c" href="../article/list?boardId=1">공지사항</a></li>
-            <li><a class="height-100p flex flex-ai-c" href="../article/list?boardId=2">방명록</a>
-            <li><a class="height-100p flex flex-ai-c" href="../article/list?boardId=3">자유</a>
+            <li><a class="height-100p flex flex-ai-c" href="../article/list?boardId=1">
+            <i class="fas fa-file-alt"></i>&nbsp;공지사항</a></li>
+            <!-- <li><a class="height-100p flex flex-ai-c" href="../article/list?boardId=2">방명록</a> -->
+            <li><a class="height-100p flex flex-ai-c" href="../article/list?boardId=3">
+            <i class="fas fa-file-alt"></i>&nbsp;자유</a>
           </ul>
         </li>
         <c:if test="${isLogined == false}">
-		<li><a class="height-100p flex flex-ai-c" href="../member/login">로그인</a></li>
+		<li><a class="height-100p flex flex-ai-c" href="../member/login">
+		<i class="fas fa-sign-in-alt"></i>&nbsp;로그인</a></li>
         <li><a class="height-100p flex flex-ai-c" href="../member/join">회원가입</a></li>
 		</c:if>
 		<c:if test="${isLogined}">
-		<li><a class="height-100p flex flex-ai-c" href="../member/Profile">마이페이지</a></li>
-		<li><a class="height-100p flex flex-ai-c" href="../member/doLogout">로그아웃</a></li>
+		<li><a class="height-100p flex flex-ai-c" href="../member/Profile">
+		<i class="fas fa-address-card"></i>&nbsp;마이페이지</a></li>
+		<li><a class="height-100p flex flex-ai-c" href="../member/doLogout">
+		<i class="fas fa-sign-out-alt"></i>&nbsp;로그아웃</a></li>
+		<li><a class="height-100p flex flex-ai-c text-nickname" href="../member/Profile">${loginedMember.nickname}님</a></li>
 		</c:if>
       </ul>
     </nav>
-    <c:if test="${isLogined}">
-    <a href="#" class="text-nickname flex-as-c">
-		${loginedMember.nickname}님
-    </a>
-    </c:if>
     
+    
+  	</section>
   </section>
-</section>
+

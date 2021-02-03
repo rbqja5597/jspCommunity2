@@ -3,7 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="pageTitle" value="${board.name} 게시물 수정" />
 <%@ include file="../../part/head.jspf"%>
-<h1>${pageTitle}</h1>
+
+
+<main class="con-min-width">
+    <div class="con">
+<h1><i class="fas fa-edit"></i>&nbsp;${pageTitle}</h1>
 
 <div>
 	<script>
@@ -46,9 +50,7 @@
 		<input type="hidden" name="id" value="${article.id}" />
 		<input type="hidden" name="body" />
 		
-		
 
-		<hr />
 		<div>
 			<div>제목</div>
 			<div>
@@ -57,7 +59,7 @@
 			</div>
 		</div>
 
-		<hr />
+		<br>
 
 		<div>
 			<div>내용</div>
@@ -66,15 +68,18 @@
  				<div class="toast-ui-editor"></div>
 			</div>
 		</div>
-		<hr />
+		<br>
 		<div>
-			<div>수정</div>
 			<div>
 				<input type="submit" value="수정" />
 				<button type="button" onclick="history.back();">뒤로가기</button>
 			</div>
 		</div>
 	</form>
+	<br>
 </div>
+</div>
+</main>
+<section></section>
 
 <%@ include file="../../part/foot.jspf"%>

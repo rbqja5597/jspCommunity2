@@ -45,6 +45,7 @@
 	</script>
 	<form action="doLogin" method="POST" class="loginForm" onsubmit="DoLoginForm__submit(this); return false;">
       <input type="hidden" name="loginPwReal"/>
+      <input type="hidden" name="afterLoginUrl" value="${param.afterLoginUrl}" />
                                                                                   
       <h2>${pageTitle}</h2>
       <div class="idForm">
