@@ -78,21 +78,21 @@
     <caption>표 제목</caption>
     <tr>
       <th>번호</th>
-      <th>제목</th>
       <th>작성날짜</th>
-      <th>갱신날짜</th>
+      <th>수정날짜</th>
       <th>작성자</th>
-      <th>상세보기</th>
+      <th>제목</th>
+      <th>내용</th>
     </tr>
   
   <c:forEach items="${articles}" var="article">
     <tr>
       <td>${article.id}</td>
-      <td>${article.title}</td>
       <td>${article.regDate}</td>
       <td>${article.updateDate}</td>
       <td>${article.extra__writer}</td>
-      <td><a href="detail?id=${article.id}">상세보기</a></td>
+      <td><a href="detail?id=${article.id}"/>${article.title}</td>
+      <td><a href="detail?id=${article.id}"/>${article.body}</td>
    </tr>
   </c:forEach>
 </table>  
