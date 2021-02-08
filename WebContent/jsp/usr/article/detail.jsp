@@ -214,16 +214,12 @@
 		</div>
 	</div>
 </div>
+<br>
 
 <div class="reply-list-box response-list-box padding-0-10 con-min-width">
 	<div class="con">
 		<table>
 			<colgroup>
-				<col width="50">
-				<col width="150">
-				<col width="100">
-				<col width="100">
-				<col width="200">
 			</colgroup>
 			<thead>
 				<tr>
@@ -231,8 +227,8 @@
 					<th>날짜</th>
 					<th>작성자</th>
 					<th>좋아요</th>
-					<th>비고</th>
 					<th>내용</th>
+					<th>비고</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -262,19 +258,17 @@
 							</span>
 						</td>
 						<td>
+							<script type="text/x-template">${reply.body}</script>
+							<div class="toast-ui-viewer"></div>
+						</td>
+						<td>
 							<div class="btn-wrap">
 								<a class="btn btn-info" href="../reply/modify?id=${reply.id}&redirectUrl=${encodedCurrentUrl}">수정</a>
 								<a class="btn btn-danger"
 									onclick="if ( confirm('정말 삭제하시겠습니까?') == false ) { return false; }"
 									href="../reply/doDelete?id=${reply.id}&redirectUrl=${encodedCurrentUrl}">삭제</a>
 							</div>
-						</td>
-						<td>
-							<script type="text/x-template">${reply.body}</script>
-							<div class="toast-ui-viewer"></div>
-						</td>
-
-							
+						</td>							
 
 							
 						</td>
@@ -284,6 +278,8 @@
 		</table>
 	</div>
 </div>
+<br>
+<br>
 
 
 </div>
