@@ -83,6 +83,8 @@
       <th>작성자</th>
       <th>제목</th>
       <th>내용</th>
+      <th>좋아요</th>
+      <th>싫어요</th>
     </tr>
   
   <c:forEach items="${articles}" var="article">
@@ -93,6 +95,8 @@
       <td>${article.extra__writer}</td>
       <td><a href="detail?id=${article.id}"/>${article.title}</td>
       <td><a href="detail?id=${article.id}"/>${article.body}</td>
+      <td><i class="far fa-thumbs-up"></i>${article.extra__likeOnlyPoint}</td>
+      <td><i class="far fa-thumbs-down"></i>${article.extra__dislikeOnlyPoint}</td>
    </tr>
   </c:forEach>
 </table>  

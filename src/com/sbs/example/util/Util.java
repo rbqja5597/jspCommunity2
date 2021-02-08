@@ -2,6 +2,7 @@ package com.sbs.example.util;
 
 import java.io.IOException;
 
+
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -11,6 +12,9 @@ import java.util.Map;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Properties;
+import java.util.Enumeration;
+import java.util.HashMap;
+
 
 import javax.mail.Authenticator;
 import javax.mail.Message;
@@ -20,6 +24,7 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -180,6 +185,65 @@ public class Util {
 		}
 
 		return (int) ((new Date().getTime() - n.getTime()) / 1000);
+	}
+	
+	public static String getNewUriRemoved(String url, String paramName) {
+		String deleteStrStarts = paramName + "=";
+		int delStartPos = url.indexOf(deleteStrStarts);
+
+		if (delStartPos != -1) {
+			int delEndPos = url.indexOf("&", delStartPos);
+
+			if (delEndPos != -1) {
+				delEndPos++;
+				url = url.substring(0, delStartPos) + url.substring(delEndPos, url.length());
+			} else {
+				url = url.substring(0, delStartPos);
+			}
+		}
+
+		if (url.charAt(url.length() - 1) == '?') {
+			url = url.substring(0, url.length() - 1);
+		}
+
+		if (url.charAt(url.length() - 1) == '&') {
+			url = url.substring(0, url.length() - 1);
+		}
+
+		return url;
+	}
+
+	public static String getNewUrl(String url, String paramName, String paramValue) {
+		url = getNewUriRemoved(url, paramName);
+
+		if (url.contains("?")) {
+			url += "&" + paramName + "=" + paramValue;
+		} else {
+			url += "?" + paramName + "=" + paramValue;
+		}
+
+		url = url.replace("?&", "?");
+
+		return url;
+	}
+
+	public static String getNewUrlAndEncoded(String url, String paramName, String pramValue) {
+		return getUrlEncoded(getNewUrl(url, paramName, pramValue));
+	}
+
+	public static Map<String, Object> getParamMap(HttpServletRequest request) {
+		Map<String, Object> param = new HashMap<>();
+
+		Enumeration<String> parameterNames = request.getParameterNames();
+
+		while (parameterNames.hasMoreElements()) {
+			String paramName = parameterNames.nextElement();
+			Object paramValue = request.getParameter(paramName);
+
+			param.put(paramName, paramValue);
+		}
+
+		return param;
 	}
 	
 }

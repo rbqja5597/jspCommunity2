@@ -11,14 +11,20 @@ import javax.servlet.http.HttpSession;
 import com.sbs.example.jspCommunity.container.Container;
 import com.sbs.example.jspCommunity.dto.Article;
 import com.sbs.example.jspCommunity.dto.Board;
+import com.sbs.example.jspCommunity.dto.Member;
+import com.sbs.example.jspCommunity.dto.Reply;
 import com.sbs.example.jspCommunity.service.ArticleService;
+import com.sbs.example.jspCommunity.service.ReplyService;
 import com.sbs.example.util.Util;
 
 public class UsrArticleController extends Controller {
 	private ArticleService articleService;
+	private ReplyService replyService;
+
 
 	public UsrArticleController() {
 		articleService = Container.articleService;
+		replyService = Container.replyService;
 	}
 
 	public String showList(HttpServletRequest req, HttpServletResponse resp) {
@@ -90,14 +96,19 @@ public class UsrArticleController extends Controller {
 		if (id == 0) {
 			return msgAndBack(req, "게시물번호를 입력해주세요.");
 		}
+		
+		Member loginedMember = (Member)req.getAttribute("loginedMember");
 
-		Article article = articleService.getForPrintArticleById(id);
+		Article article = articleService.getForPrintArticleById(id, loginedMember);
 
 		if (article == null) {
 			return msgAndBack(req, id + "번 게시물은 존재하지 않습니다.");
 		}
 
 		req.setAttribute("article", article);
+		
+		List<Reply> replies = replyService.getForPrintReplies("article", article.getId());
+		req.setAttribute("replies", replies);
 
 		return "usr/article/detail";
 	}

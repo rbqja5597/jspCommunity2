@@ -1,6 +1,7 @@
 package com.sbs.example.jspCommunity.servlet;
 
 import javax.servlet.annotation.WebServlet;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -8,6 +9,8 @@ import com.sbs.example.jspCommunity.container.Container;
 import com.sbs.example.jspCommunity.controller.UsrArticleController;
 import com.sbs.example.jspCommunity.controller.UsrHomeController;
 import com.sbs.example.jspCommunity.controller.UsrMemberController;
+import com.sbs.example.jspCommunity.controller.UsrReplyController;
+import com.sbs.example.jspCommunity.controller.UsrLikeController;
 
 @WebServlet("/usr/*")
 public class UsrDispatcherServlet extends DispatcherServlet {
@@ -17,7 +20,7 @@ public class UsrDispatcherServlet extends DispatcherServlet {
 		String jspPath = null;
 
 		if (controllerName.equals("home")) {
-			UsrHomeController homrController = Container.homeController;
+			UsrHomeController homrController = Container.usrHomeController;
 
 			if (actionMethodName.equals("main")) {
 				jspPath = homrController.showMain(req, resp);
@@ -25,7 +28,7 @@ public class UsrDispatcherServlet extends DispatcherServlet {
 		}
 
 		else if (controllerName.equals("member")) {
-			UsrMemberController memberController = Container.memberController;
+			UsrMemberController memberController = Container.usrMemberController;
 
 			if (actionMethodName.equals("list")) {
 				jspPath = memberController.showList(req, resp);
@@ -58,7 +61,7 @@ public class UsrDispatcherServlet extends DispatcherServlet {
 			}
 
 		} else if (controllerName.equals("article")) {
-			UsrArticleController articleController = Container.articleController;
+			UsrArticleController articleController = Container.usrArticleController;
 
 			if (actionMethodName.equals("list")) {
 				jspPath = articleController.showList(req, resp);
@@ -76,6 +79,29 @@ public class UsrDispatcherServlet extends DispatcherServlet {
 				jspPath = articleController.doModify(req, resp);
 			} else if (actionMethodName.equals("doDelete")) {
 				jspPath = articleController.doDelete(req, resp);
+			}
+		}  else if (controllerName.equals("like")) {
+			UsrLikeController likeController = Container.usrLikeController;
+
+			if (actionMethodName.equals("doLike")) {
+				jspPath = likeController.doLike(req, resp);
+			} else if (actionMethodName.equals("doCancelLike")) {
+				jspPath = likeController.doCancelLike(req, resp);
+			} else if (actionMethodName.equals("doDislike")) {
+				jspPath = likeController.doDislike(req, resp);
+			} else if (actionMethodName.equals("doCancelDislike")) {
+				jspPath = likeController.doCancelDislike(req, resp);
+			}
+		 
+		} else if (controllerName.equals("reply")) {
+			UsrReplyController replyController = Container.usrReplyController;
+
+			if (actionMethodName.equals("doWrite")) {
+				jspPath = replyController.doWrite(req, resp);
+			} else if (actionMethodName.equals("doDelete")) {
+				jspPath = replyController.doDelete(req, resp);
+			} else if (actionMethodName.equals("doModify")) {
+				jspPath = replyController.doModify(req, resp);
 			}
 		}
 		return jspPath;

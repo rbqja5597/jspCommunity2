@@ -161,5 +161,44 @@ CREATE TABLE `like` (
 );
 
 # 좋아요 인덱스
-ALTER TABLE `jspCommunity`.`like` ADD INDEX (`relTypeCode`, `relId`, `memberId`);  
+ALTER TABLE `like` ADD INDEX (`relTypeCode`, `relId`, `memberId`);
 
+# 댓글 테이블 추가
+CREATE TABLE `reply` (
+    id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    regDate DATETIME NOT NULL,
+    updateDate DATETIME NOT NULL,
+    relTypeCode CHAR(30) NOT NULL,
+    relId INT(10) UNSIGNED NOT NULL,
+    memberId INT(10) UNSIGNED NOT NULL,
+    `body` TEXT NOT NULL
+);
+
+# 댓글에 인덱스 걸기
+ALTER TABLE `reply` ADD INDEX (`relTypeCode`, `relId`);
+
+
+# 댓글에 테스트 데이터 추가
+INSERT INTO reply
+SET regDate = NOW(),
+updateDate = NOW(),
+memberId = 1,
+relTypeCode = 'article',
+relId = 1,
+`body` = '댓글1';
+
+INSERT INTO reply
+SET regDate = NOW(),
+updateDate = NOW(),
+memberId = 2,
+relTypeCode = 'article',
+relId = 1,
+`body` = '댓글2';
+
+INSERT INTO reply
+SET regDate = NOW(),
+updateDate = NOW(),
+memberId = 2,
+relTypeCode = 'article',
+relId = 1,
+`body` = '댓글3';

@@ -108,7 +108,7 @@ public class MemberService {
 		String date = attrService.getValue("member__" + actorId + "__extra__loginPwModifiedDate");
 
 		if ( Util.isEmpty(date) ) {
-			return true;
+			return false;
 		}
 
 		int pass = Util.getPassedSecondsFrom(date);
@@ -118,6 +118,12 @@ public class MemberService {
 		if ( pass > oldPasswordDays * 60 * 60 * 24 ) {
 			return true;
 		}
+
+		return false;
+	}
+	
+	public boolean isAdmin(int memberId) {
+		//return memberId == 1;
 
 		return false;
 	}
