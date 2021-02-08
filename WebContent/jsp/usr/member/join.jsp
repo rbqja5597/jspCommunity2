@@ -134,7 +134,7 @@
 	}
 	</script>
 	<form action="doJoin" method="POST" class="joinForm" onsubmit="DoJoinForm__submit(this); return false;">
-	<h1>${pageTitle}</h1>
+	<h1><i class="fas fa-user-plus"></i>&nbsp;${pageTitle}</h1>
 		<input type="hidden" name="loginPwReal"/>
 		<div>
 			아이디 : <input name="loginId" type="text" maxlength="50" 
@@ -175,13 +175,11 @@
 				placeholder="전화번호를 입력해주세요." />
 		</div>
 		<br>
-		<div>
-		<br>
+		<div>가입</div>
 			<div>
 				<input type="submit" value="회원가입" />
 				<button type="button" onclick="history.back();">뒤로가기</button>
 			</div>
-		</div>
 	</form>
 </div>
 </div>
