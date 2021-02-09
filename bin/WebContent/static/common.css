@@ -59,6 +59,11 @@ a {
 .height-100p {
   height:100%;
 }
+
+.udl {
+  text-decoration: underline;
+}
+
 /* 라이브러리 - 일반 끝 */
 
 /* 라이브러리 - 디버그 시작 */
@@ -247,6 +252,7 @@ a {
 }
 
 
+
 .section_page {
 	margin-bottom:50px;
 	text-align:center;
@@ -262,7 +268,7 @@ a {
 
 .joinForm {
   position:absolute;
-  width:400px;
+  width:500px;
   height:400px;
   padding: 30px, 20px;
   background-color:#FFFFFF;
