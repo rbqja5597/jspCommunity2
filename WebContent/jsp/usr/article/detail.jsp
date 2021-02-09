@@ -105,14 +105,97 @@
 <div class="title-bar padding-0-10 con-min-width">
 	<h1 class="con">
 		<span>
+			<i class="fas fa-list"></i>
+		</span>
+		<span>댓글</span>
+	</h1>
+</div>
+
+<div class="padding-0-10 con-min-width">
+	<div class="con">
+		<div>
+			<span>댓글</span>
+			<span class="color-red"> ${replies.size()}개</span>
+		</div>
+	</div>
+</div>
+<br>
+
+<div class="padding-0-10 con-min-width">
+	<div class="con">
+		<table class="table-bar">
+			<colgroup>
+			</colgroup>
+			<thead>
+				<tr>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${replies}" var="reply">
+					<tr data-id="${reply.id}">
+						<td>
+							<span>${reply.extra__writer}</span>
+						</td>
+						<td>
+							<script type="text/x-template">${reply.body}</script>
+							<div class="toast-ui-viewer"></div>
+						</td>
+						<td>
+							<span>${reply.regDate}</span>
+						</td>
+						
+						<td>
+							<span>
+								<span>
+									<i class="far fa-thumbs-up"></i>
+								</span>
+								<span> ${reply.extra__likeOnlyPoint} </span>
+							</span>&nbsp;
+							<span>
+								<span>
+									<i class="far fa-thumbs-down"></i>
+								</span>
+								<span> ${reply.extra__dislikeOnlyPoint} </span>
+							</span>
+						</td>
+						
+						<td>
+							<div class="btn-wrap">
+								<a class="" href="../reply/modify?id=${reply.id}&redirectUrl=${encodedCurrentUrl}">수정</a>
+								<a class=""
+									onclick="if ( confirm('정말 삭제하시겠습니까?') == false ) { return false; }"
+									href="../reply/doDelete?id=${reply.id}&redirectUrl=${encodedCurrentUrl}">삭제</a>
+							</div>
+						</td>							
+
+							
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+
+<!-- <div class="title-bar padding-0-10 con-min-width">
+	<h1 class="con">
+		<span>
 			<i class="fas fa-newspaper"></i>
 		</span>
 		<span>댓글작성</span>
 	</h1>
-</div>
+</div> -->
+<br>
 
 <c:if test="${isLogined == false}">
-	<div class="article-reply-write-form-box form-box padding-0-10 con-min-width">
+	<div class="padding-0-10 con-min-width">
 		<div class="con">
 			<a class="udl hover-link"
 				href="../member/login?afterLoginUrl=${encodedCurrentUrl}">로그인</a>
@@ -122,7 +205,7 @@
 </c:if>
 <c:if test="${isLogined}">
 	<div
-		class="article-reply-write-form-box form-box padding-0-10 con-min-width">
+		class="padding-0-10 con-min-width">
 		<script>
 	let Reply__DoWriteForm__submited = false;
 	let Reply__DoWriteForm__checkedLoginId = "";
@@ -160,7 +243,9 @@
 			<input type="hidden" name="body" />
 
 			<table>
-				
+				<colgroup>
+				<col width="1200">
+				</colgroup>
 				<tbody>
 					<tr>
 						<td>
@@ -175,9 +260,9 @@
 					<tr>
 						<td>
 							<div>
-								<div class="btn-wrap">
+								<div align="right" class="btn-wrap">
 								<br>
-									<input class="" type="submit" value="작성" />
+									<input class="btn1" type="submit" value="등록" />
 									<!-- <button class="" type="button"
 										onclick="history.back();">뒤로가기</button> -->
 								</div>
@@ -190,90 +275,7 @@
 	</div>
 </c:if>
 
-<div class="title-bar padding-0-10 con-min-width">
-	<h1 class="con">
-		<span>
-			<i class="fas fa-list"></i>
-		</span>
-		<span>댓글 리스트</span>
-	</h1>
-</div>
 
-<div class="reply-list-total-count-box padding-0-10 con-min-width">
-	<div class="con">
-		<div>
-			<span>
-				<i class="fas fa-clipboard-list"></i>
-			</span>
-			<span>총 게시물 수 : </span>
-			<span class="color-red"> ${replies.size()} </span>
-		</div>
-	</div>
-</div>
-<br>
-
-<div class="reply-list-box response-list-box padding-0-10 con-min-width">
-	<div class="con">
-		<table>
-			<colgroup>
-			</colgroup>
-			<thead>
-				<tr>
-					<th>번호</th>
-					<th>날짜</th>
-					<th>작성자</th>
-					<th>좋아요</th>
-					<th>내용</th>
-					<th>비고</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${replies}" var="reply">
-					<tr data-id="${reply.id}">
-						<td>
-							<span class="response-list-box__id">${reply.id}</span>
-						</td>
-						<td>
-							<span class="response-list-box__reg-date">${reply.regDate}</span>
-						</td>
-						<td>
-							<span class="response-list-box__writer">${reply.extra__writer}</span>
-						</td>
-						<td>
-							<span class="response-list-box__likeOnlyPoint">
-								<span>
-									<i class="far fa-thumbs-up"></i>
-								</span>
-								<span> ${reply.extra__likeOnlyPoint} </span>
-							</span>
-							<span class="response-list-box__dislikeOnlyPoint">
-								<span>
-									<i class="far fa-thumbs-down"></i>
-								</span>
-								<span> ${reply.extra__dislikeOnlyPoint} </span>
-							</span>
-						</td>
-						<td>
-							<script type="text/x-template">${reply.body}</script>
-							<div class="toast-ui-viewer"></div>
-						</td>
-						<td>
-							<div class="btn-wrap">
-								<a class="" href="../reply/modify?id=${reply.id}&redirectUrl=${encodedCurrentUrl}">수정</a>
-								<a class=""
-									onclick="if ( confirm('정말 삭제하시겠습니까?') == false ) { return false; }"
-									href="../reply/doDelete?id=${reply.id}&redirectUrl=${encodedCurrentUrl}">삭제</a>
-							</div>
-						</td>							
-
-							
-						</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	</div>
-</div>
 <br>
 <br>
 
