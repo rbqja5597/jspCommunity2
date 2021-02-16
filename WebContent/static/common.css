@@ -153,6 +153,7 @@ a {
 
 .top-bar .menu-box-1 {
   margin-right:13px;
+  z-index:10;
 }
 
 .top-bar .menu-box-1 > ul > li > a {
@@ -161,12 +162,13 @@ a {
 }
 
 .top-bar .text-nickname {
-  background-color:#afafaf;
   padding:10px 20px;
   border-radius:22px;
   font-weight:bold;
   color:#0080ff;
 }
+
+
 
 .menu-box-1 > ul > li {
   position:relative;
@@ -178,10 +180,10 @@ a {
   top:100%;
   left:-10px;
   width:100%;
-  background-color:#afafaf;
-  border:10px solid #afafaf;
   border-top-width:0;
   border-radius:0 0 10px 10px;
+  text-align:center;
+  
 }
 
 .menu-box-1 > ul > li:hover > ul {
@@ -193,10 +195,6 @@ a {
   padding:20px 0;
 }
 
-.menu-box-1 ul > li:hover > a {
-  background-color:#afafaf;
-  color:white;
-}
 
 /* 메뉴 끝 */
 
@@ -212,10 +210,28 @@ a {
 /* 하단바 시작 */
 
 .bottom-bar {
-  height:80px;
-  background-color:#afafaf;
+  height:100px;
+  background-color:#d5d5d5;
+}
+
+.bottom-bar__site-info {
+	margin-top:10px;
 }
 /* 하단바 끝 */
+
+/* 메인 시작 */
+
+.bxslider-1 {
+	margin-top:10px;
+	z-index:1;
+}
+
+.bxslider-1 > ul {
+	width:1200px;
+	height:500px;
+}
+
+/* 메인 끝 */
 
 
 
@@ -273,19 +289,20 @@ a {
   	 table-layout:fixed;
 }
 
-.table-bar {
-
-}
 
 .table-bar th {
-      color: #cde01f;
+      color: #000000;
       background: #f0f6f9;
 }
 
 .table-bar th, .table-bar td {
       padding-top:10px;
       padding-bottom:10px;
-      padding-left:30px;
+      padding-left:0px;
+}
+
+.table-bar td {
+	text-align:center;
 }
     
 .table-bar tr {

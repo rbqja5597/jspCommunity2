@@ -3,7 +3,19 @@
 	
 	
 	 <footer class="bottom-bar con-min-width">
-    <div class="con"></div>
+    <div class="con">
+    
+     
+
+      <div class="bottom-bar__site-info">    
+      <i class="far fa-envelope"></i>
+      rbqja5597@naver.com
+      <br><br>
+      <i class="far fa-copyright"></i>
+        Copyright SPURS. All rights reserved.
+        
+    
+    </div>
   </footer>
 	
 </div>

@@ -40,5 +40,10 @@ public class ReplyService {
 		return replyDao.delete(id);
 	}
 
+	public int modify(Map<String, Object> modifyArgs) {
+		return replyDao.modify(modifyArgs);
+		
+	}
+
 
 }

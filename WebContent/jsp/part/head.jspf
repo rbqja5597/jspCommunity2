@@ -32,6 +32,12 @@
 <script src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight.min.js" defer></script>
 <!-- 토스트 UI 끝 -->
 
+<!--  메인 슬라이더 --> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+
 
 
 <link rel="stylesheet"
@@ -47,10 +53,11 @@ var param = ${paramJson};
 </head>
 <body>
 <div class="body-content">
-	<section class="top-bar con-min-width bg-gray">
+	<section class="top-bar con-min-width">
   		<section class="con flex height-100p">
     <a href="../home/main" class="logo flex flex-ai-c">
-    SPURS      
+    <img alt="" src="../../img/logo2.png">
+        
     </a>
     <div class="flex-grow-1"></div>
     <nav class="menu-box-1">

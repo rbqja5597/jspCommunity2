@@ -128,16 +128,20 @@
 			</colgroup>
 			<thead>
 				<tr>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
+					<th>번호</th>
+					<th>작성자</th>
+					<th>내용</th>
+					<th>작성날짜</th>
+					<th>좋아요 / 싫어요</th>
+					<th>수정 / 삭제</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${replies}" var="reply">
 					<tr data-id="${reply.id}">
+						<td>
+							<span>${reply.id}</span>
+						</td>
 						<td>
 							<span>${reply.extra__writer}</span>
 						</td>
@@ -155,7 +159,7 @@
 									<i class="far fa-thumbs-up"></i>
 								</span>
 								<span> ${reply.extra__likeOnlyPoint} </span>
-							</span>&nbsp;
+							</span>&nbsp;/&nbsp; 
 							<span>
 								<span>
 									<i class="far fa-thumbs-down"></i>
@@ -166,7 +170,7 @@
 						
 						<td>
 							<div class="btn-wrap">
-								<a class="" href="../reply/modify?id=${reply.id}&redirectUrl=${encodedCurrentUrl}">수정</a>
+								<a class=""  href="../reply/doModify?id=${reply.id}&redirectUrl=${encodedCurrentUrl}">수정</a> /
 								<a class=""
 									onclick="if ( confirm('정말 삭제하시겠습니까?') == false ) { return false; }"
 									href="../reply/doDelete?id=${reply.id}&redirectUrl=${encodedCurrentUrl}">삭제</a>
