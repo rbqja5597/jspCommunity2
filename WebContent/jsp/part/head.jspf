@@ -54,7 +54,7 @@ var param = ${paramJson};
 <body>
 <div class="body-content">
 	<section class="top-bar con-min-width">
-  		<section class="con flex height-100p">
+  			<section class="con flex height-100p">
     <a href="../home/main" class="logo flex flex-ai-c">
     <img alt="" src="../../img/logo2.png">
         
@@ -62,14 +62,26 @@ var param = ${paramJson};
     <div class="flex-grow-1"></div>
     <nav class="menu-box-1">
       <ul class="flex height-100p">
-        <li><a class="height-100p flex flex-ai-c" href="#">
-        <i class="fas fa-list"></i>&nbsp;게시판</a>
+      	<li><a class="height-100p flex flex-ai-c" href="../member/Profile">
+		일정 / 결과</a>
+			<ul>
+			<li><a class="height-100p " href="../article/list?boardId=1">
+            일정</a></li>
+            <br>
+            <li><a class="height-100p " href="../article/list?boardId=2">
+            결과</a>
+			
+			</ul>
+		</li>
+        
+        <li><a class="height-100p flex flex-ai-c" href="../article/list?boardId=1">
+        게시판</a>
           <ul>
-            <li><a class="height-100p flex flex-ai-c" href="../article/list?boardId=1">
-            <i class="fas fa-file-alt"></i>&nbsp;공지사항</a></li>
-            <!-- <li><a class="height-100p flex flex-ai-c" href="../article/list?boardId=2">방명록</a> -->
-            <li><a class="height-100p flex flex-ai-c" href="../article/list?boardId=3">
-            <i class="fas fa-file-alt"></i>&nbsp;자유</a>
+            <li><a class="height-100p " href="../article/list?boardId=1">
+            공지사항</a></li>
+            <br>
+            <li><a class="height-100p " href="../article/list?boardId=3">
+            자유</a>
           </ul>
         </li>
         <c:if test="${isLogined == false}">
@@ -79,9 +91,9 @@ var param = ${paramJson};
 		</c:if>
 		<c:if test="${isLogined}">
 		<li><a class="height-100p flex flex-ai-c" href="../member/Profile">
-		<i class="fas fa-address-card"></i>&nbsp;마이페이지</a></li>
+		마이페이지</a></li>
 		<li><a class="height-100p flex flex-ai-c" href="../member/doLogout">
-		<i class="fas fa-sign-out-alt"></i>&nbsp;로그아웃</a></li>
+		로그아웃</a></li>
 		<li><a class="height-100p flex flex-ai-c text-nickname" href="../member/Profile">${loginedMember.name}님</a></li>
 		</c:if>
       </ul>

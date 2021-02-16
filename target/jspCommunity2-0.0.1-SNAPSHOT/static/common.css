@@ -148,7 +148,11 @@ a {
 /* 상단 탑바 */
 
 .top-bar {
-  height:80px;
+  height:90px;
+}
+
+.top-bar > a {
+	margin-top:10px;
 }
 
 .top-bar .menu-box-1 {
@@ -168,7 +172,9 @@ a {
   color:#0080ff;
 }
 
-
+.menu-box-1 {
+	height:90px;
+}
 
 .menu-box-1 > ul > li {
   position:relative;
@@ -177,22 +183,17 @@ a {
 .menu-box-1 > ul ul {
   display:none;
   position:absolute;
-  top:100%;
-  left:-10px;
   width:100%;
-  border-top-width:0;
-  border-radius:0 0 10px 10px;
   text-align:center;
-  
 }
+
 
 .menu-box-1 > ul > li:hover > ul {
   display:block;
 }
 
 .menu-box-1 ul > li > a {
-  text-align:center;
-  padding:20px 0;
+  padding:10px 0;
 }
 
 
@@ -222,7 +223,6 @@ a {
 /* 메인 시작 */
 
 .bxslider-1 {
-	margin-top:10px;
 	z-index:1;
 }
 
