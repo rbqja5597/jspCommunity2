@@ -86,8 +86,8 @@ var param = ${paramJson};
         </li>
         <c:if test="${isLogined == false}">
 		<li><a class="height-100p flex flex-ai-c" href="../member/login">
-		<i class="fas fa-sign-in-alt"></i>&nbsp;로그인</a></li>
-        <li><a class="height-100p flex flex-ai-c" href="../member/join"><i class="fas fa-user-plus"></i>&nbsp;회원가입</a></li>
+		로그인</a></li>
+        <li><a class="height-100p flex flex-ai-c" href="../member/join">회원가입</a></li>
 		</c:if>
 		<c:if test="${isLogined}">
 		<li><a class="height-100p flex flex-ai-c" href="../member/Profile">
