@@ -66,6 +66,7 @@
 
 		<div>
 			<div>내용</div>
+			
 			<div>
 				<script type="text/x-template"></script>
  				<div class="toast-ui-editor"></div>
@@ -73,7 +74,7 @@
 		</div>
 		<br>
 		<div>
-			<div>작성</div>
+			
 			<div>
 				<input type="submit" value="작성" />
 				<button type="button" onclick="history.back();">뒤로가기</button>

@@ -16,7 +16,7 @@ public class App {
 	}
 
 	public static String getSiteName() {
-		return "JSP Community";
+		return "SPURS";
 	}
 
 	public static String getContextName() {

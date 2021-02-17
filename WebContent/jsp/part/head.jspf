@@ -38,6 +38,13 @@
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
 
+<style>
+    .menu a{cursor:pointer;}
+    .menu .hide{display:none;}
+    
+    .menu-box a{cursor:pointer;}
+    .menu-box .hide{display:none;}
+</style>
 
 
 <link rel="stylesheet"
@@ -62,27 +69,37 @@ var param = ${paramJson};
     <div class="flex-grow-1"></div>
     <nav class="menu-box-1">
       <ul class="flex height-100p">
-      	<li><a class="height-100p flex flex-ai-c" href="../member/Profile">
-		일정 / 결과</a>
-			<ul>
-			<li><a class="height-100p " href="../article/list?boardId=1">
-            일정</a></li>
-            <br>
-            <li><a class="height-100p " href="../article/list?boardId=2">
-            결과</a>
-			
-			</ul>
-		</li>
+      	 <li class="menu-box">
+            <a class="height-100p flex flex-ai-c">일정 / 결과</a>
+            <ul class="hide">
+                <li><a class="height-100p " href="">
+            	일정</a></li>
+                <br>
+            	<li><a class="height-100p " href="">
+            	결과</a>
+            </ul>
+        </li>
         
-        <li><a class="height-100p flex flex-ai-c" href="../article/list?boardId=1">
-        게시판</a>
-          <ul>
-            <li><a class="height-100p " href="../article/list?boardId=1">
-            공지사항</a></li>
-            <br>
-            <li><a class="height-100p " href="../article/list?boardId=3">
-            자유</a>
-          </ul>
+        <li class="menu-box">
+            <a class="height-100p flex flex-ai-c">기록 / 순위</a>
+            <ul class="hide">
+                <li><a class="height-100p " href="">
+            	기록</a></li>
+                <br>
+            	<li><a class="height-100p " href="">
+            	순위</a>
+            </ul>
+        </li>
+        
+       <li class="menu-box">
+            <a class="height-100p flex flex-ai-c">게시판</a>
+            <ul class="hide">
+                <li><a class="height-100p " href="../article/list?boardId=1">
+          	    공지사항</a></li>
+           		<br>
+             	<li><a class="height-100p " href="../article/list?boardId=3">
+           		자유</a>
+            </ul>
         </li>
         <c:if test="${isLogined == false}">
 		<li><a class="height-100p flex flex-ai-c" href="../member/login">

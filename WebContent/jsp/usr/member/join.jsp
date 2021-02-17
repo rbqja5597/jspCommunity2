@@ -7,8 +7,8 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
 
-<main class="con-min-width">
-    <div class="con">
+  <main class="con-min-width">
+    <div class="con">	
 
 
 <div>
@@ -133,56 +133,55 @@
 		DoJoinForm__submited = true;
 	}
 	</script>
-	<form action="doJoin" method="POST" class="joinForm" onsubmit="DoJoinForm__submit(this); return false;">
-	<h1><i class="fas fa-user-plus"></i>&nbsp;${pageTitle}</h1>
+	
+
+
+	
+	<form action="doJoin" method="POST" class="joinForm1" onsubmit="DoJoinForm__submit(this); return false;">
+	<h1>${pageTitle}</h1>
 		<input type="hidden" name="loginPwReal"/>
-		<div>
-			아이디 : <input name="loginId" type="text" maxlength="50" 
-			placeholder="아이디를 입력해주세요." >
-			
-			<button onclick="DoJoinForm__checkLoginIdDup(this);" name="btnLoginIdDupCheck" type="button">중복체크</button>
-			</input>
-		</div>
-		<br>
 		
-		<div>
-			비밀번호 : <input name="loginPw" type="password" maxlength="100"
-				placeholder="비밀번호를 입력해주세요." />
-		</div>
-		<br>
-		<div>
-			비밀번호 확인 : <input name="loginPwConfirm" type="password" maxlength="100"
-				placeholder="비밀번호 확인을 입력해주세요." />
-		</div>
-		<br>
-		<div>
-			이름 : <input name="name" type="text" maxlength="50"
-			placeholder="이름을 입력해주세요." />
-		</div>
-		<br>
-		<div>
-			이메일 : <input name="email" type="email" maxlength="100"
-			placeholder="이메일을 입력해주세요." />
-		</div>
-		<br>
-		<div>
-			닉네임 : <input name="nickname" type="text" maxlength="50"
-				placeholder="닉네임을 입력해주세요." />
-		</div>
-		<br>
-		<div>
-			전화번호 : <input name="cellphoneNo" type="tel"  maxlength="100"
-				placeholder="전화번호를 입력해주세요." />
-		</div>
-		<br>
-		<div>가입</div>
-			<div>
-				<input type="submit" value="회원가입" />
-				<button type="button" onclick="history.back();">뒤로가기</button>
-			</div>
+		<div class="textForm">
+		<div class="sett flex">* 아이디</div>
+			<input name="loginId" type="text" class="id1" placeholder="아이디입력 5~11자" maxlength="11">
+			<button class="btn1" onclick="DoJoinForm__checkLoginIdDup(this);" name="btnLoginIdDupCheck" type="button">중복체크</button>
+			</input>
+		</div>		
+		
+		<div class="textForm2">
+		<div class="sett flex">* 비밀번호</div>
+        <input name="loginPw" type="password" class="pw" placeholder="비밀번호 입력 5~20자" maxlength="11">
+    	</div>
+		
+		<div class="textForm">
+		<div class="sett flex">* 비밀번호 확인</div>
+        <input name="loginPwConfirm" type="password" class="pw" placeholder="비밀번호 확인 5~20자">
+     	</div>
+		
+		<div class="textForm">
+		<div class="sett flex">* 이름</div>
+        <input name="name" type="password" class="name" placeholder="이름을 입력해주세요">
+        </div>
+		
+		<div class="textForm">
+		<div class="sett flex">* 이메일</div>
+        <input name="email" type="text" class="email" placeholder="이메일을 입력해주세요">
+     	</div>
+		
+		<div class="textForm">
+		<div class="sett flex">* 닉네임</div>
+        <input name="nickname" type="text" class="nickname" placeholder="닉네임을 입력해주세요">
+        </div>
+		
+		<div class="textForm">
+		<div class="sett flex">* 전화번호</div>
+        <input name="cellphoneNo" type="number" class="cellphoneNo" placeholder="전화번호를 입력해주세요">
+        </div>
+		
+		<input type="submit" class="btn" value="J O I N"/>
+			
 	</form>
 </div>
 </div>
 </main>
-<section></section>
 <%@ include file="../../part/foot.jspf"%>

@@ -87,7 +87,7 @@ updateDate = NOW(),
 memberId = 1,
 boardId = 1,
 title = '제목1',
-`body` = '내용1';
+`body` = '어제 웨햄 경기 너무 실망이네요 ';
 
 INSERT INTO article
 SET regDate = NOW(),

@@ -136,6 +136,7 @@ a {
 
 .writer_search {
 	display:flex;
+	font-size:20px;
 }
 
 .search {
@@ -181,16 +182,10 @@ a {
 }
 
 .menu-box-1 > ul ul {
-  display:none;
-  position:absolute;
   width:100%;
   text-align:center;
 }
 
-
-.menu-box-1 > ul > li:hover > ul {
-  display:block;
-}
 
 .menu-box-1 ul > li > a {
   padding:10px 0;
@@ -211,20 +206,30 @@ a {
 /* 하단바 시작 */
 
 .bottom-bar {
-  height:100px;
-  background-color:#d5d5d5;
+  height:160px;
 }
 
 .bottom-bar__site-info {
-	margin-top:10px;
+  margin-left:100px;
 }
+
+.bottom-bar__site-info2 {
+  margin-left:300px;
+}
+
+.mark {
+	font-size:30px;
+}
+
 /* 하단바 끝 */
+
+
 
 /* 메인 시작 */
 
 .bxslider-1 {
 	z-index:1;
-	margin-top:20px;
+	margin-top:0px;
 }
 
 .bxslider-1 > ul {
@@ -325,14 +330,26 @@ a {
 .joinForm {
   position:absolute;
   width:500px;
-  height:400px;
+  height:800px;
   padding: 30px, 20px;
-  background-color:#FFFFFF;
+  background-color: #ebebeb;
   text-align:center;
-  top:40%;
+  top:50%;
   left:50%;
   transform: translate(-50%,-50%);
   border-radius: 15px;
+}
+
+.joinForm1 {
+  width:450px;
+  height:800px;
+  padding: 30px 20px;
+  margin-left:350px;
+  margin-bottom:30px;
+  background-color: #ebebeb;
+  text-align:center;  
+  border-radius: 15px;
+	
 }
 
 .joinForm h2 {
@@ -342,20 +359,33 @@ a {
 
 .textForm {
   border-bottom: 2px solid #adadad;
-  margin: 30px;
+  margin:20px;
   padding: 10px 10px;
 }
 
+.textForm2 {
+  border-bottom: 2px solid #adadad;
+  margin:20px;
+  padding: 5px 10px;
+}
 
 .id {
-  width: 100%;
   border:none;
   outline:none;
   color: #636e72;
   font-size:16px;
-  height:25px;
   background: none;
 }
+
+.id1 {
+  width:72%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  background: none;
+}
+
 
 .pw {
   width: 100%;
@@ -425,8 +455,21 @@ a {
   display:inline;
 }
 
+.sett {
+	margin-bottom:7px;
+}
+
 .btn:hover {
   background-position: right;
+}
+
+.btn1 {	
+  width:25%;
+  left:40%;
+  cursor:pointer;
+  background-color:#636e72;
+  color:white;
+  border:none;
 }
 
 /* 회원가입 폼 끝 */
@@ -436,11 +479,11 @@ a {
 .loginForm {
   position:absolute;
   width:350px;
-  height:350px;
+  height:330px;
   padding: 30px, 20px;
   background-color: #ebebeb;
   text-align:center;
-  top:50%;
+  top:43%;
   left:50%;
   transform: translate(-50%,-50%);
   border-radius: 15px;
@@ -485,10 +528,10 @@ a {
 
 .btn {
   position:relative;
-  left:40%;
+  left:45%;
   transform: translateX(-50%);
   margin-bottom: 40px;
-  width:80%;
+  width:90%;
   height:40px;
   background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
   background-position: left;
@@ -507,7 +550,7 @@ a {
 
 .loginForm .loginMenu {
   text-align:center;
-  margin:36px 0 0 0;
+  margin:20px 0 0 0;
 }
 .loginForm .loginMenu li {
   display:inline-block;

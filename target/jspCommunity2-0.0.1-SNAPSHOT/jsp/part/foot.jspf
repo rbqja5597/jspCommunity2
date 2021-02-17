@@ -1,20 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-	
 	 <footer class="bottom-bar con-min-width">
-    <div class="con">
-    
-     
-
-      <div class="bottom-bar__site-info">    
+	 <hr>
+	 <br>
+    <div class="con flex flex-ai-c">
+      <a href="#" class="logo logo--mini flex flex-ai-c">
+       	<img src="../../img/logo2.png" alt="" />
+      </a>
+	 
+      <div class="bottom-bar__site-info">
+      <a class="foot">대전광역시 서구 갈마동</a>
+      <br><br>
       <i class="far fa-envelope"></i>
-      rbqja5597@naver.com
+      <a class="foot">rbqja5597@naver.com</a>
       <br><br>
       <i class="far fa-copyright"></i>
-        Copyright SPURS. All rights reserved.
-        
-    
+      <a class="foot">Copyright 2021. SPURS All rights reserved.</a>
+     
+ 	  </div>
+      
+	   <div class="bottom-bar__site-info2">
+      <a class="mark" href="https://to2.kr/b54"><i class="fab fa-github"></i></a>
+      &nbsp;&nbsp;
+      <a class="mark" href="https://to2.kr/bEr"><i class="fab fa-blogger"></i></a>
+      &nbsp;&nbsp;
+      <a class="mark" href="https://to2.kr/bCq"><i class="fab fa-youtube"></i></a>
+     
+ 	  </div>
+ 	  
+ 	  
+      
+	  
+	  
     </div>
   </footer>
 	

@@ -51,10 +51,10 @@ public class MemberService {
 		// 메일 제목과 내용 만들기
 		String siteName = App.getSiteName();
 		String siteLoginUrl = App.getLoginUrl();
-		String title = "[" + siteName + "] 임시 패스워드 발송";
+		String title = "[" + siteName + "] 임시 패스워드 ";
 		String tempPassword = Util.getTempPassword(6);
 		String body = "<h1>임시 패스워드 : " + tempPassword + "</h1>";
-		body += "<a href=\"" + siteLoginUrl + "\" target=\"_blank\">로그인 하러가기</a>";
+		body += "<br><a href=\"" + siteLoginUrl + "\" target=\"_blank\">로그인 하러가기</a>";
 
 		Map<String, Object> rs = new HashMap<>();
 

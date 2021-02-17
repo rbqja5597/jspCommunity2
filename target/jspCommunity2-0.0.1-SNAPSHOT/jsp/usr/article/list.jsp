@@ -14,9 +14,12 @@
 <br>
 <section class="writer_search">
 <div>
-	<a href="write?boardId=${param.boardId}">게시물 작성</a>
+	<c:if test="${isLogined}">
+	<a href="write?boardId=${param.boardId}">글 작성</a>
+	</c:if>
 </div>
-<br>
+
+<div class="flex-grow-1"></div>
 
 <div class="search">
 	<script>
@@ -66,7 +69,7 @@
 
 <div> 
 
-	총 게시물 수 : ${totalCount}
+	게시글 수 : ${totalCount}
 
 </div>
 
@@ -75,6 +78,15 @@
 
 
 <table class="table">
+	<colgroup>
+		<col width="15">
+		<col width="40">
+		<col width="30">
+		<col width="20">
+		<col width="10">
+		<col width="50">
+		<col width="15">
+	</colgroup>
     <caption>표 제목</caption>
     <tr>
       <th>번호</th>
@@ -83,8 +95,8 @@
       <th>작성자</th>
       <th>제목</th>
       <th>내용</th>
-      <th>좋아요</th>
-      <th>싫어요</th>
+      <th>추천 수</th>
+      
     </tr>
   
   <c:forEach items="${articles}" var="article">
@@ -95,8 +107,9 @@
       <td>${article.extra__writer}</td>
       <td><a href="detail?id=${article.id}"/>${article.title}</td>
       <td><a href="detail?id=${article.id}"/>${article.body}</td>
-      <td><i class="far fa-thumbs-up"></i>${article.extra__likeOnlyPoint}</td>
-      <td><i class="far fa-thumbs-down"></i>${article.extra__dislikeOnlyPoint}</td>
+      <td><i class="far fa-thumbs-up"></i>${article.extra__likeOnlyPoint} 
+      /&nbsp;<i class="far fa-thumbs-down"></i>${article.extra__dislikeOnlyPoint}
+      </td>
    </tr>
   </c:forEach>
 </table>  
