@@ -225,7 +225,7 @@ public class UsrMemberController extends Controller {
 		}
 
 		if (member.getEmail().equals(email) == false) {
-			return msgAndBack(req, "회원이 이메일주소를 정확히 입력해주세요.");
+			return msgAndBack(req, "이메일주소를 정확히 입력해주세요.");
 		}
 
 		ResultData sendTempLoginPwToEmailRs = memberService.sendTempLoginPwToEmail(member);

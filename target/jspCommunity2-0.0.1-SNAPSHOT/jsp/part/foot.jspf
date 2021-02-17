@@ -21,11 +21,11 @@
  	  </div>
       
 	   <div class="bottom-bar__site-info2">
-      <a class="mark" href="https://to2.kr/b54"><i class="fab fa-github"></i></a>
+      <a class="mark" href="https://to2.kr/b54" target="_blank"><i class="fab fa-github"></i></a>
       &nbsp;&nbsp;
-      <a class="mark" href="https://to2.kr/bEr"><i class="fab fa-blogger"></i></a>
+      <a class="mark" href="https://to2.kr/bEr" target="_blank"><i class="fab fa-blogger"></i></a>
       &nbsp;&nbsp;
-      <a class="mark" href="https://to2.kr/bCq"><i class="fab fa-youtube"></i></a>
+      <a class="mark" href="https://to2.kr/bCq" target="_blank"><i class="fab fa-youtube"></i></a>
      
  	  </div>
  	  
