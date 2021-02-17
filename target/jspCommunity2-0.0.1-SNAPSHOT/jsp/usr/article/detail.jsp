@@ -125,23 +125,22 @@
 	<div class="con">
 		<table class="table-bar">
 			<colgroup>
+			<col width="10">
+			<col width="50">
+			<col width="20">
+			<col width="15">
 			</colgroup>
 			<thead>
 				<tr>
-					<th>번호</th>
 					<th>작성자</th>
 					<th>내용</th>
 					<th>작성날짜</th>
-					<th>좋아요 / 싫어요</th>
 					<th>수정 / 삭제</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${replies}" var="reply">
 					<tr data-id="${reply.id}">
-						<td>
-							<span>${reply.id}</span>
-						</td>
 						<td>
 							<span>${reply.extra__writer}</span>
 						</td>
@@ -153,20 +152,7 @@
 							<span>${reply.regDate}</span>
 						</td>
 						
-						<td>
-							<span>
-								<span>
-									<i class="far fa-thumbs-up"></i>
-								</span>
-								<span> ${reply.extra__likeOnlyPoint} </span>
-							</span>&nbsp;/&nbsp; 
-							<span>
-								<span>
-									<i class="far fa-thumbs-down"></i>
-								</span>
-								<span> ${reply.extra__dislikeOnlyPoint} </span>
-							</span>
-						</td>
+						
 						
 						<td>
 							<div class="btn-wrap">

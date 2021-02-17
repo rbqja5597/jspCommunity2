@@ -26,79 +26,126 @@
 </script>
 
 
-<main class="con-min-width">
-<div class="con">
-<h1>${pageTitle}</h1>
-<section>
-	번호 : ${article.id}
-	<br />
-	작성날짜 : ${article.regDate}
-	<br />
-	갱신날짜 : ${article.updateDate}
-	<br />
-	작성자 : ${article.extra__writer}
-	<br />
-	제목 : ${article.title}
-	<br />
-	
-	좋아요 : ${article.extra__likeOnlyPoint}
-	<br />
-	싫어요 : ${article.extra__dislikeOnlyPoint}
-	<hr>
-	<script type="text/x-template">${article.body}</script>
-  <div class="toast-ui-viewer"></div>
-</section>
+
+<div class="title-bar padding-0-10 con-min-width">
+	<h1 class="con">
+		<span>
+			<i class="fas fa-newspaper"></i>
+		</span>
+		&nbsp;
+		<span>${pageTitle}</span>
+	</h1>
+</div>
+
+<div class="article-detail-box detail-box padding-0-10 con-min-width">
+	<div class="con">
+		<table>
+			<colgroup>
+				<col width="150">
+			</colgroup>
+			<tbody>
+				<tr>
+					<th>
+						<span>번호</span>
+					</th>
+					<td>
+						<div>${article.id}</div>
+					</td>
+				</tr>				
+				<tr>
+					<th>
+						<span>작성자</span>
+					</th>
+					<td>
+						<div>${article.extra__writer}</div>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<span>제목</span>
+					</th>
+					<td>
+						<div>${article.title}</div>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<span>추천</span>
+					</th>
+					<td>
+						<div>${article.extra__likeOnlyPoint}</div>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<span>비추</span>
+					</th>
+					<td>
+						<div>${article.extra__dislikeOnlyPoint}</div>
+					</td>
+				</tr>
+				<tr>
+				<td>
+				<c:if test="${article.extra.actorCanLike}">
+					<a class=""
+					href="../like/doLike?relTypeCode=article&relId=${article.id}&redirectUrl=${encodedCurrentUrl}">
+					<span><i class="far fa-thumbs-up"></i></span>	
+					<span>추천</span>
+					</a>
+				</c:if>
+				
+				<c:if test="${article.extra.actorCanCancelLike}">
+					<a class=""
+					href="../like/doCancelLike?relTypeCode=article&relId=${article.id}&redirectUrl=${encodedCurrentUrl}">
+					<span><i class="far fa-thumbs-up"></i></span>	
+					<span>추천 x</span>
+					</a>
+				</c:if>
+				</td>
+				<td>
+				<c:if test="${article.extra.actorCanDislike}">
+					<a class="" 
+					href="../like/doDislike?relTypeCode=article&relId=${article.id}&redirectUrl=${encodedCurrentUrl}">
+					<span><i class="far fa-thumbs-down"></i></span>
+					<span>비추</span>
+					</a>
+				</c:if>
+				<c:if test="${article.extra.actorCanCancelDislike}">
+					<a class=""
+					href="../like/doCancelDislike?relTypeCode=article&relId=${article.id}&redirectUrl=${encodedCurrentUrl}">
+					<span><span><i class="fas fa-slash"></i></span></span>
+					<span>비추 x</span>
+					</a>
+				</c:if>
+				</td>
+				</tr>
+				<tr>
+				<th><span>내용</span></th>
+				</tr>
+				<tr>
+					
+					<td colspan="2">
+					<hr>
+						<script type="text/x-template">${article.body}</script>
+						<div class="toast-ui-viewer"></div>
+					<hr>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
 
 <hr />
 
-<section class="con-min-width">
-	<a href="list?boardId=${article.boardId}">리스트로 이동</a>
-	<br>
-	<a href="modify?id=${article.id}">수정</a>
-	<a onclick="if ( confirm('정말 삭제하시겠습니까?') == false ) { return false; }"
+<div class="article-btn-box padding-0-10 con-min-width">
+	<div class="con btn-wrap">
+		<a class="btn2 btn-info" href="list?boardId=${article.boardId}">리스트</a>
+		<a class="btn2 btn-info" href="modify?id=${article.id}">수정</a>
+		<a class="btn2 btn-danger" onclick="if ( confirm('정말 삭제하시겠습니까?') == false ) { return false; }"
 		href="doDelete?id=${article.id}">삭제</a>
-
-	<br>
-	<br>
-
-	<c:if test="${article.extra.actorCanLike}">
-			<a class=""
-			href="../like/doLike?relTypeCode=article&relId=${article.id}&redirectUrl=${encodedCurrentUrl}"
-			onclick="if ( !confirm('`좋아요` 처리 하시겠습니까?') ) return false;">
-				<span><i class="far fa-thumbs-up"></i></span>
-				<span>좋아요</span>
-			</a>
-		</c:if>
-
-		<c:if test="${article.extra.actorCanCancelLike}">
-			<a class=""
-			href="../like/doCancelLike?relTypeCode=article&relId=${article.id}&redirectUrl=${encodedCurrentUrl}"
-			onclick="if ( !confirm('`좋아요`를 취소 처리 하시겠습니까?') ) return false;">
-				<span><i class="fas fa-slash"></i></span>
-				<span>좋아요 취소</span>
-			</a>
-		</c:if>
-		
-
-		<c:if test="${article.extra.actorCanDislike}">
-			<a class="" 
-			href="../like/doDislike?relTypeCode=article&relId=${article.id}&redirectUrl=${encodedCurrentUrl}"
-			onclick="if ( !confirm('`싫어요` 처리 하시겠습니까?') ) return false;">
-				<span><i class="far fa-thumbs-down"></i></span>
-				<span>싫어요</span>
-			</a>
-		</c:if>
-
-		<c:if test="${article.extra.actorCanCancelDislike}">
-			<a class=""
-			href="../like/doCancelDislike?relTypeCode=article&relId=${article.id}&redirectUrl=${encodedCurrentUrl}"
-			onclick="if ( !confirm('`싫어요`를 취소 처리 하시겠습니까?') ) return false;">
-				<span><span><i class="fas fa-slash"></i></span></span>
-				<span>싫어요 취소</span>
-			</a>
-		</c:if>
-
-</section>
+	</div>
+</div>
 
 
 <!-- 댓글 -->
@@ -125,23 +172,22 @@
 	<div class="con">
 		<table class="table-bar">
 			<colgroup>
+			<col width="10">
+			<col width="50">
+			<col width="20">
+			<col width="15">
 			</colgroup>
 			<thead>
 				<tr>
-					<th>번호</th>
 					<th>작성자</th>
 					<th>내용</th>
 					<th>작성날짜</th>
-					<th>좋아요 / 싫어요</th>
 					<th>수정 / 삭제</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${replies}" var="reply">
 					<tr data-id="${reply.id}">
-						<td>
-							<span>${reply.id}</span>
-						</td>
 						<td>
 							<span>${reply.extra__writer}</span>
 						</td>
@@ -153,27 +199,18 @@
 							<span>${reply.regDate}</span>
 						</td>
 						
-						<td>
-							<span>
-								<span>
-									<i class="far fa-thumbs-up"></i>
-								</span>
-								<span> ${reply.extra__likeOnlyPoint} </span>
-							</span>&nbsp;/&nbsp; 
-							<span>
-								<span>
-									<i class="far fa-thumbs-down"></i>
-								</span>
-								<span> ${reply.extra__dislikeOnlyPoint} </span>
-							</span>
-						</td>
 						
 						<td>
 							<div class="btn-wrap">
-								<a class=""  href="../reply/doModify?id=${reply.id}&redirectUrl=${encodedCurrentUrl}">수정</a> /
-								<a class=""
-									onclick="if ( confirm('정말 삭제하시겠습니까?') == false ) { return false; }"
-									href="../reply/doDelete?id=${reply.id}&redirectUrl=${encodedCurrentUrl}">삭제</a>
+							
+							<a href="../reply/showmodifyReply?id=${reply.id}&redirectUrl=${encodedCurrentUrl}">
+							<i class="fas fa-pen"></i>
+							</a>
+							&nbsp;&nbsp;&nbsp;
+							<a class=""	onclick="if ( confirm('정말 삭제하시겠습니까?') == false ) { return false; }"
+									href="../reply/doDelete?id=${reply.id}&redirectUrl=${encodedCurrentUrl}">
+									<i class="fas fa-trash"></i>
+									</a>
 							</div>
 						</td>							
 
@@ -264,11 +301,10 @@
 					<tr>
 						<td>
 							<div>
-								<div align="right" class="btn-wrap">
+								<div class="btn-wrap">
 								<br>
-									<input class="btn1" type="submit" value="등록" />
-									<!-- <button class="" type="button"
-										onclick="history.back();">뒤로가기</button> -->
+									<input class="btn2" type="submit" value="등록" />
+									<button class="btn2" type="button"	onclick="history.back();">뒤로가기</button>
 								</div>
 							</div>
 						</td>

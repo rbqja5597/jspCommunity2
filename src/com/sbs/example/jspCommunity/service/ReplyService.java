@@ -45,5 +45,9 @@ public class ReplyService {
 		
 	}
 
+	public Reply getReplyID(int id) {
+		return replyDao.getReplyID(id);
+	}
+
 
 }

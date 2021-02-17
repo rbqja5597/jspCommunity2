@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sbs.example.jspCommunity.container.Container;
 import com.sbs.example.jspCommunity.dto.Article;
+import com.sbs.example.jspCommunity.dto.Board;
 import com.sbs.example.jspCommunity.dto.Reply;
 import com.sbs.example.jspCommunity.service.ArticleService;
 import com.sbs.example.jspCommunity.service.ReplyService;
@@ -92,13 +93,10 @@ public class UsrReplyController extends Controller {
 
 		return msgAndReplace(req, id + "번 댓글이 삭제되었습니다.", redirectUrl);
 	}
-
-
-	public String doModify(HttpServletRequest req, HttpServletResponse resp) {
+	
+	public String showmodifyReply(HttpServletRequest req, HttpServletResponse resp) {
 		String redirectUrl = req.getParameter("redirectUrl");
-
-		int loginedMemberId = (int) req.getAttribute("loginedMemberId");
-
+		
 		int id = Util.getAsInt(req.getParameter("id"), 0);
 
 		if (id == 0) {
@@ -111,10 +109,42 @@ public class UsrReplyController extends Controller {
 			return msgAndBack(req, id + "번 댓글은 존재하지 않습니다.");
 		}
 
+		int loginedMemberId = (int) req.getAttribute("loginedMemberId");
+
+		if (reply.getMemberId() != loginedMemberId) {
+			return msgAndBack(req, id + "번 게시물에 대한 권한이 없습니다.");
+		}
+
+		req.setAttribute("reply", reply);
+
+		
+		return "usr/article/modifyReply";
+	}
+
+
+	public String doModifyReply(HttpServletRequest req, HttpServletResponse resp) {
+		String redirectUrl = req.getParameter("redirectUrl");
+
+		int loginedMemberId = (int) req.getAttribute("loginedMemberId");
+
+		int id = Util.getAsInt(req.getParameter("id"), 0);
+
+		
+		if (id == 0) { 
+			return msgAndBack(req, "번호를 입력해주세요."); 
+		}
+		 
+		Reply reply = replyService.getReply(id);
+
+		if (reply == null) {
+			return msgAndBack(req, id + "번 댓글은 존재하지 않습니다.");
+		}
+
 		if (replyService.actorCanDelete(reply, loginedMemberId) == false) {
 			return msgAndBack(req, "수정 권한이 없습니다.");
 		}
-		
+
+
 		String body = req.getParameter("body");
 
 		if (Util.isEmpty(body)) {
@@ -127,7 +157,8 @@ public class UsrReplyController extends Controller {
 
 		replyService.modify(modifyArgs);
 
-		return msgAndReplace(req, id + "번 게시물이 수정되었습니다.", String.format("detail?id=%d", id));
+		return msgAndReplace(req, id + "번 댓글이 수정 되었습니다.", redirectUrl);
 	}
+
 
 }

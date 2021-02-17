@@ -160,7 +160,7 @@
 		
 		<div class="textForm">
 		<div class="sett flex">* 이름</div>
-        <input name="name" type="password" class="name" placeholder="이름을 입력해주세요">
+        <input name="name" type="text" class="name" placeholder="이름을 입력해주세요">
         </div>
 		
 		<div class="textForm">

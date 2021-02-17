@@ -97,4 +97,19 @@ public class ReplyDao {
 
 		return MysqlUtil.update(sql);
 	}
+
+	public Reply getReplyID(int id) {
+		SecSql sql = new SecSql();
+		sql.append("SELECT *");
+		sql.append("FROM reply");
+		sql.append("WHERE id = ?", id);
+
+		Map<String, Object> map = MysqlUtil.selectRow(sql);
+
+		if (map.isEmpty()) {
+			return null;
+		}
+
+		return new Reply(map);
+	}
 }

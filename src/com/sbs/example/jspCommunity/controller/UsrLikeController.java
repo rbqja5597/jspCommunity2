@@ -31,7 +31,7 @@ public class UsrLikeController extends Controller {
 
 		likeService.setLikePoint(relTypeCode, relId, actorId, 1);
 
-		return msgAndReplace(req, "`좋아요` 처리되었습니다.", req.getParameter("redirectUrl"));
+		return msgAndReplace(req, "", req.getParameter("redirectUrl"));
 	}
 
 	public String doCancelLike(HttpServletRequest req, HttpServletResponse resp) {
@@ -51,7 +51,7 @@ public class UsrLikeController extends Controller {
 
 		likeService.setLikePoint(relTypeCode, relId, actorId, 0);
 
-		return msgAndReplace(req, "`좋아요`가 취소 처리되었습니다.", req.getParameter("redirectUrl"));
+		return msgAndReplace(req, "", req.getParameter("redirectUrl"));
 	}
 
 	public String doDislike(HttpServletRequest req, HttpServletResponse resp) {
@@ -71,7 +71,7 @@ public class UsrLikeController extends Controller {
 
 		likeService.setLikePoint(relTypeCode, relId, actorId, -1);
 
-		return msgAndReplace(req, "`싫어요` 처리되었습니다.", req.getParameter("redirectUrl"));
+		return msgAndReplace(req, "", req.getParameter("redirectUrl"));
 	}
 
 	public String doCancelDislike(HttpServletRequest req, HttpServletResponse resp) {
@@ -91,7 +91,7 @@ public class UsrLikeController extends Controller {
 
 		likeService.setLikePoint(relTypeCode, relId, actorId, 0);
 
-		return msgAndReplace(req, "`싫어요`가 취소 처리되었습니다.", req.getParameter("redirectUrl"));
+		return msgAndReplace(req, "", req.getParameter("redirectUrl"));
 	}
 
 }

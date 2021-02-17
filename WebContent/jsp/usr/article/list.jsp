@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<c:set var="pageTitle" value="${board.name} 게시물 리스트" />
+<c:set var="pageTitle" value="${board.name} 게시판" />
 <%@ include file="../../part/head.jspf"%>
 
 <main>
@@ -13,10 +13,10 @@
 
 <br>
 <section class="writer_search">
-<div>
-	<c:if test="${isLogined}">
-	<a href="write?boardId=${param.boardId}">글 작성</a>
-	</c:if>
+<div> 
+
+	게시글 수 : ${totalCount}
+
 </div>
 
 <div class="flex-grow-1"></div>
@@ -65,13 +65,7 @@
 </div>
 </section>
 
-<br>
 
-<div> 
-
-	게시글 수 : ${totalCount}
-
-</div>
 
 <br>
 
@@ -79,41 +73,47 @@
 
 <table class="table">
 	<colgroup>
-		<col width="15">
-		<col width="40">
-		<col width="30">
-		<col width="20">
-		<col width="10">
+		<col width="5">
 		<col width="50">
+		<col width="7">
 		<col width="15">
+		<col width="10">
+		
 	</colgroup>
     <caption>표 제목</caption>
     <tr>
       <th>번호</th>
-      <th>작성날짜</th>
-      <th>수정날짜</th>
-      <th>작성자</th>
       <th>제목</th>
-      <th>내용</th>
+      <th>작성자</th>
+      <th>작성날짜</th>
       <th>추천 수</th>
       
     </tr>
   
   <c:forEach items="${articles}" var="article">
     <tr>
-      <td>${article.id}</td>
-      <td>${article.regDate}</td>
-      <td>${article.updateDate}</td>
-      <td>${article.extra__writer}</td>
+      <td><a href="detail?id=${article.id}"/>${article.id}</td>
       <td><a href="detail?id=${article.id}"/>${article.title}</td>
-      <td><a href="detail?id=${article.id}"/>${article.body}</td>
+      <td><a href="detail?id=${article.id}"/>${article.extra__writer}</td>  
+      <td>${article.regDate}</td>
       <td><i class="far fa-thumbs-up"></i>${article.extra__likeOnlyPoint} 
       /&nbsp;<i class="far fa-thumbs-down"></i>${article.extra__dislikeOnlyPoint}
       </td>
    </tr>
   </c:forEach>
 </table>  
+
+<section>
+<div class="write-page ">
+	<button class="btn2"><a href="write?boardId=${param.boardId}">글쓰기</a></button>
+	
 </div>
+</section>
+
+
+</div>
+
+</section>
 </section>
 
 <style>
@@ -122,8 +122,10 @@
 }
 </style>
 <br>
+
 <br>
 <section class="section_page">
+
 <div class="con bottom_page">
 	<!--
 	<c:set var="aUrl" value="?page=1&boardId=${param.boardId}&searchKeywordType=${param.searchKeywordType}&searchKeyword=${param.searchKeyword}" />

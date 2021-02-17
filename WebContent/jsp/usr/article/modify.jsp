@@ -71,8 +71,9 @@
 		<br>
 		<div>
 			<div>
-				<input type="submit" value="수정" />
-				<button type="button" onclick="history.back();">뒤로가기</button>
+				<input class="btn2" type="submit" value="수정" />
+				&nbsp;&nbsp;&nbsp;
+				<button class="btn2" type="button" onclick="history.back();">뒤로가기</button>
 			</div>
 		</div>
 	</form>

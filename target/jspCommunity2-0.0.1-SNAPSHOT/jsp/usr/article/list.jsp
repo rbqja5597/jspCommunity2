@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<c:set var="pageTitle" value="${board.name} 게시물 리스트" />
+<c:set var="pageTitle" value="${board.name} 게시판" />
 <%@ include file="../../part/head.jspf"%>
 
 <main>
@@ -83,7 +83,7 @@
 		<col width="40">
 		<col width="30">
 		<col width="20">
-		<col width="10">
+		<col width="40">
 		<col width="50">
 		<col width="15">
 	</colgroup>
