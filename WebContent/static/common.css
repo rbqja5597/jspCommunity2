@@ -697,4 +697,44 @@ button {
 }
 /* 버튼랩 끝 */
 
+/* 회원정보 시작 */
+
+.ProfileForm {
+  position:absolute;
+  width:350px;
+  height:430px;
+  padding:30px, 20px;
+  background-color: #ebebeb;
+  text-align:center;
+  top:43%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 15px;
+}
+
+.ProfileForm h2{
+  text-align: center;
+  margin: 30px;
+}
+
+.teForm{
+  margin: 10px;
+  padding: 10px 10px;
+}
+
+.id {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+
+/*  회원정보 끝 */
+
+
+
 

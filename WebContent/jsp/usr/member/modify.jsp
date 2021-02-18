@@ -9,7 +9,6 @@
 
 <main class="con-min-width">
     <div class="con">
-<h1>${pageTitle}</h1>
 
 <div>
 	<script>
@@ -95,7 +94,8 @@
 		DoModifyForm__submited = true;
 	}
 	</script>
-	<form action="doModify" method="POST" onsubmit="DoModifyForm__submit(this); return false;">
+	<form action="doModify" method="POST" class="" onsubmit="DoModifyForm__submit(this); return false;">
+		<h1>${pageTitle}</h1>
 		<input type="hidden" name="loginPwReal"/>
 		<div>
 			아이디 : ${loginedMember.loginId}

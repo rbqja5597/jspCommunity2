@@ -10,42 +10,42 @@
 
 <main class="con-min-width">
     <div class="con">
-<h1>${pageTitle}</h1>
+
 
 <div>
-	<form>
+	
+	<form class="ProfileForm">
+	<h1>${pageTitle}</h1>
 		<input type="hidden" name="loginPwReal"/>
-		<br>
-		<div>
-			아이디 : ${loginedMember.loginId}
+		
+		<div class="teForm">
+			<a class="id">아이디 : ${loginedMember.loginId}</a>
 		</div>
-		<br>
-		<div>
-			이름 : ${loginedMember.name}
+		
+		<div class="teForm">
+			<a class="id">이름 : ${loginedMember.name}</a>
 		</div>
-		<br>
-		<div>
-			이메일 : ${loginedMember.email}
+		
+		<div class="teForm">
+			<a class="id">이메일 : ${loginedMember.email}</a>
 		</div>
-		<br>
-		<div>
-			닉네임 : ${loginedMember.nickname}
+		
+		<div class="teForm">
+			<a class="id">닉네임 : ${loginedMember.nickname}</a>
 		</div>
-		<br>
-		<div>
-			전화번호 : ${loginedMember.cellphoneNo}
+  
+    	<div class="teForm">
+			<a class="id">전화번호 : ${loginedMember.cellphoneNo}</a>
 		</div>
-		<br>
-		<div>
-			아이디 생성날짜 : ${loginedMember.regDate}
+		
+		<div class="teForm">
+			<a class="id">전화번호 : ${loginedMember.regDate}</a>
 		</div>
-		<br>
+		
 		<div>
-		<br>
 			<div>
-			
-				<button type="button"><a href="modify">수정하기</a></button>
-				<button type="button" onclick="history.back();">뒤로가기</button>
+				<button class="btn2" type="button"><a href="modify">수정하기</a></button>
+				<button class="btn2" type="button" onclick="history.back();">뒤로가기</button>
 			</div>
 		</div>
 	</form>

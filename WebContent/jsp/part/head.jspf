@@ -69,28 +69,29 @@ var param = ${paramJson};
     <div class="flex-grow-1"></div>
     <nav class="menu-box-1">
       <ul class="flex height-100p">
+      	
       	 <li class="menu-box">
-            <a class="height-100p flex flex-ai-c">일정 / 결과</a>
+            <a class="height-100p flex flex-ai-c">경기 정보</a>
             <ul class="hide">
                 <li><a class="height-100p " href="">
-            	일정</a></li>
+            	일정 / 결과</a></li>
                 <br>
             	<li><a class="height-100p " href="">
-            	결과</a>
+            	기록 / 순위</a>
             </ul>
         </li>
         
         <li class="menu-box">
-            <a class="height-100p flex flex-ai-c">기록 / 순위</a>
+            <a class="height-100p flex flex-ai-c">뉴스</a>
             <ul class="hide">
                 <li><a class="height-100p " href="">
-            	기록</a></li>
+            	최신뉴스</a></li>
                 <br>
             	<li><a class="height-100p " href="">
-            	순위</a>
+            	영상</a>
             </ul>
         </li>
-        
+               
        <li class="menu-box">
             <a class="height-100p flex flex-ai-c">게시판</a>
             <ul class="hide">

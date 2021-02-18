@@ -3,8 +3,10 @@
 <%@ page import="com.sbs.example.util.Util"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<c:set var="pageTitle" value="${article.extra__boardName} 게시물 상세페이지" />
+<c:set var="pageTitle" value="게시물 상세페이지" />
 <%@ include file="../../part/head.jspf"%>
+
+<!-- ${article.extra__boardName}  --> 
 
 <script>
 	$(function() {
