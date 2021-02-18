@@ -3,8 +3,10 @@
 <%@ page import="com.sbs.example.util.Util"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<c:set var="pageTitle" value="${article.extra__boardName} 게시물 상세페이지" />
+<c:set var="pageTitle" value="게시물 상세페이지" />
 <%@ include file="../../part/head.jspf"%>
+
+<!-- ${article.extra__boardName}  --> 
 
 <script>
 	$(function() {
@@ -113,7 +115,7 @@
 				<c:if test="${article.extra.actorCanCancelDislike}">
 					<a class=""
 					href="../like/doCancelDislike?relTypeCode=article&relId=${article.id}&redirectUrl=${encodedCurrentUrl}">
-					<span><span><i class="fas fa-slash"></i></span></span>
+					<span><i class="far fa-thumbs-down"></i></span></span>
 					<span>비추 x</span>
 					</a>
 				</c:if>
@@ -139,7 +141,7 @@
 <hr />
 
 <div class="article-btn-box padding-0-10 con-min-width">
-	<div class="con btn-wrap">
+	<div class="con btn-wrap list-modify">
 		<a class="btn2 btn-info" href="list?boardId=${article.boardId}">리스트</a>
 		<a class="btn2 btn-info" href="modify?id=${article.id}">수정</a>
 		<a class="btn2 btn-danger" onclick="if ( confirm('정말 삭제하시겠습니까?') == false ) { return false; }"
@@ -173,9 +175,9 @@
 		<table class="table-bar">
 			<colgroup>
 			<col width="10">
-			<col width="50">
+			<col width="40">
 			<col width="20">
-			<col width="15">
+			<col width="10">
 			</colgroup>
 			<thead>
 				<tr>
@@ -201,9 +203,8 @@
 						
 						
 						<td>
-							<div class="btn-wrap">
 							
-							<a href="../reply/showmodifyReply?id=${reply.id}&redirectUrl=${encodedCurrentUrl}">
+							<a href="../reply/showModifyReply?id=${reply.id}&redirectUrl=${encodedCurrentUrl}">
 							<i class="fas fa-pen"></i>
 							</a>
 							&nbsp;&nbsp;&nbsp;
@@ -211,7 +212,7 @@
 									href="../reply/doDelete?id=${reply.id}&redirectUrl=${encodedCurrentUrl}">
 									<i class="fas fa-trash"></i>
 									</a>
-							</div>
+							
 						</td>							
 
 							

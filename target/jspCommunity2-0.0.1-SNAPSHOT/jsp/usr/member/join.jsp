@@ -175,7 +175,7 @@
 		
 		<div class="textForm">
 		<div class="sett flex">* 전화번호</div>
-        <input name="cellphoneNo" type="number" class="cellphoneNo" placeholder="전화번호를 입력해주세요">
+        <input name="cellphoneNo" type="number" class="cellphoneNo" placeholder="전화번호를 입력해주세요 ' - ' 생략">
         </div>
 		
 		<input type="submit" class="btn" value="J O I N"/>

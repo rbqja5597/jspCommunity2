@@ -94,7 +94,7 @@ public class UsrReplyController extends Controller {
 		return msgAndReplace(req, id + "번 댓글이 삭제되었습니다.", redirectUrl);
 	}
 	
-	public String showmodifyReply(HttpServletRequest req, HttpServletResponse resp) {
+	public String showModifyReply(HttpServletRequest req, HttpServletResponse resp) {
 		String redirectUrl = req.getParameter("redirectUrl");
 		
 		int id = Util.getAsInt(req.getParameter("id"), 0);

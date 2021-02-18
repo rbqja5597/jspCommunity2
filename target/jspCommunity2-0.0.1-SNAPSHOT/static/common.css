@@ -206,11 +206,13 @@ a {
 /* 하단바 시작 */
 
 .bottom-bar {
-  height:160px;
+  height:135px;
 }
 
 .bottom-bar__site-info {
   margin-left:100px;
+  margin-bottom:10px;
+  font-size:13px;
 }
 
 .bottom-bar__site-info2 {
@@ -218,7 +220,7 @@ a {
 }
 
 .mark {
-	font-size:30px;
+	font-size:25px;
 }
 
 /* 하단바 끝 */
@@ -273,8 +275,6 @@ a {
 	display: none;
 }
 
-
-
 .section_page {
 	margin-bottom:50px;
 	text-align:center;
@@ -282,6 +282,12 @@ a {
 
 .bottom_page {
 	letter-spacing:13px;
+}
+
+.write-page {
+	float:right;
+	margin-top:10px;
+	font-size:20px;
 }
 
 /* 게시물 리스트 끝 */
@@ -318,6 +324,14 @@ a {
 .table-bar caption{
 	caption-side: bottom;
 	display: none;
+}
+
+.body-text {
+	font-size:30px;
+}
+
+.tui-editor-contents {
+	font-size:20px;
 }
 
 
@@ -570,5 +584,118 @@ a {
 
 /* 로그인 폼 끝 */
 
+/* 상세내용박스 시작 */
+.detail-box > .con > table {
+  border-top: 3px solid black;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.detail-box > .con > table > tbody > tr > th {
+  text-align: left;
+}
+
+.detail-box > .con > table > tbody > tr > th,
+.detail-box > .con > table > tbody > tr > td {
+  padding: 20px 0;
+}
+
+@media (max-width: 800px) {
+  .detail-box > .con > table > tbody > tr,
+  .detail-box > .con > table > tbody > tr > th,
+  .detail-box > .con > table > tbody > tr > td {
+    display: block;
+  }
+
+  .detail-box > .con > table > tbody > tr {
+    border-bottom: 1px solid #dfdfdf;
+  }
+}
+/* 상세내용 박스 끝 */
+
+/* 토스트UI에디터 시작 */
+.tui-editor-contents {
+	font-family: inherit;
+}
+/* 토스트UI에디터 끝 */
+
+/* 버튼랩 시작 */
+@media (min-width: 801px) {
+  .btn-wrap {
+    display: flex;
+  }
+  .btn-wrap > .btn2 + .btn2 {
+    margin-left: 10px;
+  }
+}
+@media (max-width: 800px) {
+  .btn2 {
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+  }
+  .btn-wrap > .btn2 + .btn2 {
+    margin-top: 10px;
+  }
+}
+
+
+/* 버튼 시작 */
+.btn2 {
+  font-size: 1rem;
+  line-height: 1rem;
+  padding: 10px 15px 7px 15px;
+  display: inline-flex;
+  font-weight: bold;
+  border-radius: 10px;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background-color: #3d94f6;
+  color: #ffffff;
+  text-shadow: 1px 1px 20px #000000;
+  text-decoration: none;
+  box-sizing: border-box;
+  justify-content: center;
+  text-align: center;
+}
+.btn-success {
+  background-color: #28a745;
+}
+.btn-info {
+  background-color: #17a2b8;
+}
+.btn-danger {
+  background-color: #dc3540;
+}
+.btn-warning {
+  background-color: #ffcc10;
+}
+input,
+button {
+  font-family: inherit;
+}
+/* 버튼 끝 */
+
+/* 버튼랩 시작 */
+@media (min-width: 801px) {
+  .btn-wrap {
+    display: flex;
+  }
+  .btn-wrap > .btn + .btn {
+    margin-left: 10px;
+  }
+}
+@media (max-width: 800px) {
+  .btn2 {
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+  }
+  .btn-wrap > .btn + .btn {
+    margin-top: 10px;
+  }
+}
+/* 버튼랩 끝 */
 
 

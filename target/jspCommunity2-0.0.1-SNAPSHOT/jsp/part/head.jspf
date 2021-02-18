@@ -107,8 +107,6 @@ var param = ${paramJson};
         <li><a class="height-100p flex flex-ai-c" href="../member/join">회원가입</a></li>
 		</c:if>
 		<c:if test="${isLogined}">
-		<li><a class="height-100p flex flex-ai-c" href="../member/Profile">
-		마이페이지</a></li>
 		<li><a class="height-100p flex flex-ai-c" href="../member/doLogout">
 		로그아웃</a></li>
 		<li><a class="height-100p flex flex-ai-c text-nickname" href="../member/Profile">${loginedMember.name}님</a></li>

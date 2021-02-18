@@ -104,7 +104,7 @@
 </table>  
 
 <section>
-<div class="write-page ">
+<div class="write-page">
 	<button class="btn2"><a href="write?boardId=${param.boardId}">글쓰기</a></button>
 	
 </div>
